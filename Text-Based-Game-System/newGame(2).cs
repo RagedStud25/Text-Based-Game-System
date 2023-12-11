@@ -24,5 +24,10 @@ namespace Text_Based_Game_System
             this.Visible = false;
             startScreen.Visible = true;
         }
+
+        private void newGame_2__Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

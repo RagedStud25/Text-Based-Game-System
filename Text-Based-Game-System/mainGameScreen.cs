@@ -22,5 +22,20 @@ namespace Text_Based_Game_System
             startScreen startScreen = new startScreen();
             startScreen.Show();
         }
+
+        private void mainGameScreen_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
