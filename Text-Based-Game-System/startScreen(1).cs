@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Text_Based_Game_System
 {
-    public partial class Form1 : Form
+    public partial class startScreen : Form
     {
-        public Form1()
+        public startScreen()
         {
             InitializeComponent();
         }
