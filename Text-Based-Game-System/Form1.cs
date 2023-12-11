@@ -16,5 +16,10 @@ namespace Text_Based_Game_System
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
