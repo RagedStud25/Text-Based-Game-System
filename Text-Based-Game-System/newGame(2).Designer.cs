@@ -28,30 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.picboxChar1 = new System.Windows.Forms.PictureBox();
-            this.picboxChar2 = new System.Windows.Forms.PictureBox();
             this.txtChar = new System.Windows.Forms.TextBox();
             this.btnBeginStory = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.picboxChar1)).BeginInit();
+            this.picboxChar2 = new System.Windows.Forms.PictureBox();
+            this.picboxChar1 = new System.Windows.Forms.PictureBox();
+            this.btnBack1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.picboxChar2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picboxChar1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // picboxChar1
-            // 
-            this.picboxChar1.Location = new System.Drawing.Point(40, 81);
-            this.picboxChar1.Name = "picboxChar1";
-            this.picboxChar1.Size = new System.Drawing.Size(200, 200);
-            this.picboxChar1.TabIndex = 0;
-            this.picboxChar1.TabStop = false;
-            // 
-            // picboxChar2
-            // 
-            this.picboxChar2.Location = new System.Drawing.Point(282, 81);
-            this.picboxChar2.Name = "picboxChar2";
-            this.picboxChar2.Size = new System.Drawing.Size(200, 200);
-            this.picboxChar2.TabIndex = 1;
-            this.picboxChar2.TabStop = false;
             // 
             // txtChar
             // 
@@ -82,11 +67,47 @@
             this.label1.TabIndex = 4;
             this.label1.Text = "Choose Character";
             // 
+            // picboxChar2
+            // 
+            this.picboxChar2.Image = global::Text_Based_Game_System.Properties.Resources.female1;
+            this.picboxChar2.Location = new System.Drawing.Point(282, 81);
+            this.picboxChar2.Name = "picboxChar2";
+            this.picboxChar2.Size = new System.Drawing.Size(200, 200);
+            this.picboxChar2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picboxChar2.TabIndex = 1;
+            this.picboxChar2.TabStop = false;
+            // 
+            // picboxChar1
+            // 
+            this.picboxChar1.Image = global::Text_Based_Game_System.Properties.Resources.male1;
+            this.picboxChar1.Location = new System.Drawing.Point(40, 81);
+            this.picboxChar1.Name = "picboxChar1";
+            this.picboxChar1.Size = new System.Drawing.Size(200, 200);
+            this.picboxChar1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picboxChar1.TabIndex = 0;
+            this.picboxChar1.TabStop = false;
+            // 
+            // btnBack1
+            // 
+            this.btnBack1.BackColor = System.Drawing.Color.Transparent;
+            this.btnBack1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnBack1.FlatAppearance.BorderSize = 0;
+            this.btnBack1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBack1.Font = new System.Drawing.Font("Showcard Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBack1.Location = new System.Drawing.Point(12, 12);
+            this.btnBack1.Name = "btnBack1";
+            this.btnBack1.Size = new System.Drawing.Size(65, 48);
+            this.btnBack1.TabIndex = 30;
+            this.btnBack1.Text = "⬅";
+            this.btnBack1.UseVisualStyleBackColor = false;
+            this.btnBack1.Click += new System.EventHandler(this.btnBack1_Click);
+            // 
             // newGame_2_
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(524, 460);
+            this.Controls.Add(this.btnBack1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnBeginStory);
             this.Controls.Add(this.txtChar);
@@ -94,8 +115,8 @@
             this.Controls.Add(this.picboxChar1);
             this.Name = "newGame_2_";
             this.Text = "newGame_2_";
-            ((System.ComponentModel.ISupportInitialize)(this.picboxChar1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picboxChar2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picboxChar1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -108,5 +129,6 @@
         private System.Windows.Forms.TextBox txtChar;
         private System.Windows.Forms.Button btnBeginStory;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnBack1;
     }
 }

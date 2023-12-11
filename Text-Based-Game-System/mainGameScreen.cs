@@ -16,5 +16,11 @@ namespace Text_Based_Game_System
         {
             InitializeComponent();
         }
+
+        private void labelHome_Click(object sender, EventArgs e)
+        {
+            startScreen startScreen = new startScreen();
+            startScreen.Show();
+        }
     }
 }

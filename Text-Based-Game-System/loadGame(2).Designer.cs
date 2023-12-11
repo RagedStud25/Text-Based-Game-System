@@ -41,6 +41,7 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
+            this.btnBack2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -98,7 +99,6 @@
             this.borderPlayer1.Name = "borderPlayer1";
             this.borderPlayer1.Size = new System.Drawing.Size(236, 387);
             this.borderPlayer1.TabIndex = 14;
-            this.borderPlayer1.Click += new System.EventHandler(this.label3_Click);
             // 
             // borderPlayer2
             // 
@@ -168,11 +168,27 @@
             this.label10.TabIndex = 21;
             this.label10.Text = "Level3";
             // 
+            // btnBack2
+            // 
+            this.btnBack2.BackColor = System.Drawing.Color.Transparent;
+            this.btnBack2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnBack2.FlatAppearance.BorderSize = 0;
+            this.btnBack2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBack2.Font = new System.Drawing.Font("Showcard Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBack2.Location = new System.Drawing.Point(22, 19);
+            this.btnBack2.Name = "btnBack2";
+            this.btnBack2.Size = new System.Drawing.Size(65, 48);
+            this.btnBack2.TabIndex = 31;
+            this.btnBack2.Text = "⬅";
+            this.btnBack2.UseVisualStyleBackColor = false;
+            this.btnBack2.Click += new System.EventHandler(this.btnBack2_Click);
+            // 
             // loadGame_2_
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(827, 578);
+            this.Controls.Add(this.btnBack2);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
@@ -211,5 +227,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Button btnBack2;
     }
 }

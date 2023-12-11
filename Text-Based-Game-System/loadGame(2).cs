@@ -17,9 +17,11 @@ namespace Text_Based_Game_System
             InitializeComponent();
         }
 
-        private void label3_Click(object sender, EventArgs e)
+        private void btnBack2_Click(object sender, EventArgs e)
         {
-
+            startScreen startScreen = new startScreen();
+            this.Visible = false;
+            startScreen.Visible = true;
         }
     }
 }

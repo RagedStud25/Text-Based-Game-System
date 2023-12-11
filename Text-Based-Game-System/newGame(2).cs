@@ -12,9 +12,17 @@ namespace Text_Based_Game_System
 {
     public partial class newGame_2_ : Form
     {
+        
         public newGame_2_()
         {
             InitializeComponent();
+        }
+
+        private void btnBack1_Click(object sender, EventArgs e)
+        {
+            startScreen startScreen = new startScreen();
+            this.Visible = false;
+            startScreen.Visible = true;
         }
     }
 }
