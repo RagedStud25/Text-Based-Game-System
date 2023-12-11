@@ -28,49 +28,49 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.charPic1 = new System.Windows.Forms.PictureBox();
-            this.charPic2 = new System.Windows.Forms.PictureBox();
-            this.charTb = new System.Windows.Forms.TextBox();
-            this.beginBtn = new System.Windows.Forms.Button();
+            this.picboxChar1 = new System.Windows.Forms.PictureBox();
+            this.picboxChar2 = new System.Windows.Forms.PictureBox();
+            this.txtChar = new System.Windows.Forms.TextBox();
+            this.btnBeginStory = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.charPic1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.charPic2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picboxChar1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picboxChar2)).BeginInit();
             this.SuspendLayout();
             // 
-            // charPic1
+            // picboxChar1
             // 
-            this.charPic1.Location = new System.Drawing.Point(40, 81);
-            this.charPic1.Name = "charPic1";
-            this.charPic1.Size = new System.Drawing.Size(200, 200);
-            this.charPic1.TabIndex = 0;
-            this.charPic1.TabStop = false;
+            this.picboxChar1.Location = new System.Drawing.Point(40, 81);
+            this.picboxChar1.Name = "picboxChar1";
+            this.picboxChar1.Size = new System.Drawing.Size(200, 200);
+            this.picboxChar1.TabIndex = 0;
+            this.picboxChar1.TabStop = false;
             // 
-            // charPic2
+            // picboxChar2
             // 
-            this.charPic2.Location = new System.Drawing.Point(282, 81);
-            this.charPic2.Name = "charPic2";
-            this.charPic2.Size = new System.Drawing.Size(200, 200);
-            this.charPic2.TabIndex = 1;
-            this.charPic2.TabStop = false;
+            this.picboxChar2.Location = new System.Drawing.Point(282, 81);
+            this.picboxChar2.Name = "picboxChar2";
+            this.picboxChar2.Size = new System.Drawing.Size(200, 200);
+            this.picboxChar2.TabIndex = 1;
+            this.picboxChar2.TabStop = false;
             // 
-            // charTb
+            // txtChar
             // 
-            this.charTb.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.charTb.Location = new System.Drawing.Point(81, 307);
-            this.charTb.Multiline = true;
-            this.charTb.Name = "charTb";
-            this.charTb.Size = new System.Drawing.Size(359, 52);
-            this.charTb.TabIndex = 2;
+            this.txtChar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtChar.Location = new System.Drawing.Point(81, 307);
+            this.txtChar.Multiline = true;
+            this.txtChar.Name = "txtChar";
+            this.txtChar.Size = new System.Drawing.Size(359, 52);
+            this.txtChar.TabIndex = 2;
             // 
-            // beginBtn
+            // btnBeginStory
             // 
-            this.beginBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.beginBtn.Location = new System.Drawing.Point(163, 382);
-            this.beginBtn.Name = "beginBtn";
-            this.beginBtn.Size = new System.Drawing.Size(196, 48);
-            this.beginBtn.TabIndex = 3;
-            this.beginBtn.Text = "Begin Story";
-            this.beginBtn.UseVisualStyleBackColor = true;
+            this.btnBeginStory.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBeginStory.Location = new System.Drawing.Point(163, 382);
+            this.btnBeginStory.Name = "btnBeginStory";
+            this.btnBeginStory.Size = new System.Drawing.Size(196, 48);
+            this.btnBeginStory.TabIndex = 3;
+            this.btnBeginStory.Text = "Begin Story";
+            this.btnBeginStory.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
@@ -88,14 +88,14 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(524, 460);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.beginBtn);
-            this.Controls.Add(this.charTb);
-            this.Controls.Add(this.charPic2);
-            this.Controls.Add(this.charPic1);
+            this.Controls.Add(this.btnBeginStory);
+            this.Controls.Add(this.txtChar);
+            this.Controls.Add(this.picboxChar2);
+            this.Controls.Add(this.picboxChar1);
             this.Name = "newGame_2_";
             this.Text = "newGame_2_";
-            ((System.ComponentModel.ISupportInitialize)(this.charPic1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.charPic2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picboxChar1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picboxChar2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -103,10 +103,10 @@
 
         #endregion
 
-        private System.Windows.Forms.PictureBox charPic1;
-        private System.Windows.Forms.PictureBox charPic2;
-        private System.Windows.Forms.TextBox charTb;
-        private System.Windows.Forms.Button beginBtn;
+        private System.Windows.Forms.PictureBox picboxChar1;
+        private System.Windows.Forms.PictureBox picboxChar2;
+        private System.Windows.Forms.TextBox txtChar;
+        private System.Windows.Forms.Button btnBeginStory;
         private System.Windows.Forms.Label label1;
     }
 }

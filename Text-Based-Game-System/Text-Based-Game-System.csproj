@@ -46,6 +46,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="loadGame%282%29.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="loadGame%282%29.Designer.cs">
+      <DependentUpon>loadGame%282%29.cs</DependentUpon>
+    </Compile>
+    <Compile Include="mainGameScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="mainGameScreen.Designer.cs">
+      <DependentUpon>mainGameScreen.cs</DependentUpon>
+    </Compile>
     <Compile Include="newGame%282%29.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -60,6 +72,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="loadGame%282%29.resx">
+      <DependentUpon>loadGame%282%29.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="mainGameScreen.resx">
+      <DependentUpon>mainGameScreen.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="newGame%282%29.resx">
       <DependentUpon>newGame%282%29.cs</DependentUpon>
     </EmbeddedResource>
