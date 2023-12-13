@@ -23,5 +23,10 @@ namespace Text_Based_Game_System
             this.Visible = false;
             startScreen.Visible = true;
         }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
