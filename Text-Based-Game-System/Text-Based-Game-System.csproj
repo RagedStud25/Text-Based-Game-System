@@ -113,8 +113,13 @@
   <ItemGroup>
     <None Include="Resources\female1.png" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Database\" />
+    <Content Include="Database\DB_TextBasedSystemTXT.txt" />
+    <Content Include="Database\GetLatestPlayerID.txt" />
+    <Content Include="Database\GetPlayerStats.txt" />
+    <Content Include="Database\InsertPlayerWithRandomStatsAndSavePoint.txt" />
+    <Content Include="Database\InsertPlayerWithSavePoint.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
