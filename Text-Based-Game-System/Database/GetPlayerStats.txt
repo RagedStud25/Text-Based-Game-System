@@ -1,0 +1,9 @@
+-- Example stored procedure to retrieve player stats
+CREATE PROCEDURE GetPlayerStats
+    @playerID INT
+AS
+BEGIN
+    SELECT PlayerHealth, PlayerSanity, PlayerStrength, PlayerIntelligence, PlayerDexterity
+    FROM PlayerStats
+    WHERE PlayerID = @playerID;
+END;

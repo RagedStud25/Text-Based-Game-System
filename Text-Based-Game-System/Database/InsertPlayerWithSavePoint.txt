@@ -1,0 +1,28 @@
+CREATE PROCEDURE dbo.InsertPlayerWithSavePoint
+    @playerNameParam NVARCHAR(255),
+    @playerGenderParam NVARCHAR(15),
+    @playerHealthParam INT,
+    @playerSanityParam INT,
+    @playerStrengthParam INT,
+    @playerIntelligenceParam INT,
+    @playerDexterityParam INT,
+    @playerLevelParam INT,
+    @progressDataParam NVARCHAR(MAX)
+AS
+BEGIN
+    -- Insert into PlayerDetails table
+    INSERT INTO PlayerDetails(PlayerName, PlayerGender)
+    VALUES(@playerNameParam, @playerGenderParam);
+
+    -- Get the last inserted PlayerID
+    DECLARE @newPlayerID INT;
+    SET @newPlayerID = SCOPE_IDENTITY();
+
+    -- Insert into PlayerStats table
+    INSERT INTO PlayerStats(PlayerID, PlayerHealth, PlayerSanity, PlayerStrength, PlayerIntelligence, PlayerDexterity, PlayerLevel)
+    VALUES(@newPlayerID, @playerHealthParam, @playerSanityParam, @playerStrengthParam, @playerIntelligenceParam, @playerDexterityParam, @playerLevelParam);
+
+    -- Create a save point for the player's progress
+    INSERT INTO PlayerSavePoint(PlayerID, ProgressData)
+    VALUES(@newPlayerID, @progressDataParam);
+END;

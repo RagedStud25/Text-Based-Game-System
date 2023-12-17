@@ -1,0 +1,30 @@
+CREATE PROCEDURE dbo.InsertPlayerWithRandomStatsAndSavePoint
+    @playerNameParam NVARCHAR(255),
+    @playerGenderParam NVARCHAR(15),
+    @progressDataParam NVARCHAR(MAX),
+    @randomStrength INT OUTPUT,
+    @randomDexterity INT OUTPUT,
+    @randomIntelligence INT OUTPUT
+AS
+BEGIN
+    -- Insert into PlayerDetails table
+    INSERT INTO PlayerDetails(PlayerName, PlayerGender)
+    VALUES(@playerNameParam, @playerGenderParam);
+
+    -- Get the last inserted PlayerID
+    DECLARE @newPlayerID INT;
+    SET @newPlayerID = SCOPE_IDENTITY();
+
+    -- Generate random values between 15 and 35 for Strength, Dexterity, and Intelligence
+    SET @randomStrength = ROUND(RAND() * 20 + 15, 0);
+    SET @randomDexterity = ROUND(RAND() * 20 + 15, 0);
+    SET @randomIntelligence = ROUND(RAND() * 20 + 15, 0);
+
+    -- Insert into PlayerStats table with randomized attributes
+    INSERT INTO PlayerStats(PlayerID, PlayerHealth, PlayerSanity, PlayerStrength, PlayerIntelligence, PlayerDexterity, PlayerLevel)
+    VALUES(@newPlayerID, 100, 90, @randomStrength, @randomIntelligence, @randomDexterity, 1); -- Assuming a default level of 1
+
+    -- Create a save point for the player's progress
+    INSERT INTO PlayerSavePoint(PlayerID, ProgressData)
+    VALUES(@newPlayerID, @progressDataParam);
+END;

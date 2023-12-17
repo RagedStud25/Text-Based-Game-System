@@ -1,0 +1,7 @@
+-- Stored procedure to get the latest player ID
+CREATE PROCEDURE GetLatestPlayerID
+AS
+BEGIN
+    SELECT MAX(PlayerID) AS LatestPlayerID
+    FROM PlayerDetails;
+END;
