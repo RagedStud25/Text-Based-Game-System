@@ -20,7 +20,31 @@ namespace Text_Based_Game_System
             InitializeComponent();
           
         }
+        // pictureBox
 
+        public static Image charPic;
+
+        public static Image char1
+        {
+            get { return charPic; }
+            set { charPic = value; }
+        }
+
+        public static Image char2
+        {
+            get { return charPic; }
+            set { charPic = value; }
+        }
+
+        private void radBtnMale_CheckedChanged(object sender, EventArgs e)
+        {
+            char1 = picboxChar1.Image;
+        }
+
+        private void radBtnFemale_CheckedChanged(object sender, EventArgs e)
+        {
+            char2 = picboxChar2.Image;
+        }
         private void btnBack1_Click(object sender, EventArgs e)
         {
             startScreen startScreen = new startScreen();

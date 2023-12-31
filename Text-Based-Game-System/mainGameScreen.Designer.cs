@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(mainGameScreen));
             this.borderPlayer1 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -38,7 +39,7 @@
             this.labelHome = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.labelPlayerLevel = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.charPicBox = new System.Windows.Forms.PictureBox();
             this.HealthPB = new System.Windows.Forms.ProgressBar();
             this.SanityPB = new System.Windows.Forms.ProgressBar();
             this.IntPB = new System.Windows.Forms.ProgressBar();
@@ -46,8 +47,14 @@
             this.StrengthPB = new System.Windows.Forms.ProgressBar();
             this.label8 = new System.Windows.Forms.Label();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
-            this.AttackBTN = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
+            this.labelMainstory = new System.Windows.Forms.Label();
+            this.fileSystemWatcher1 = new System.IO.FileSystemWatcher();
+            this.btnChoiceOne = new System.Windows.Forms.Button();
+            this.btnChoiceTwo = new System.Windows.Forms.Button();
+            this.btnChoiceThree = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.charPicBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).BeginInit();
             this.SuspendLayout();
             // 
             // borderPlayer1
@@ -56,7 +63,7 @@
             this.borderPlayer1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.borderPlayer1.Location = new System.Drawing.Point(1, 0);
             this.borderPlayer1.Name = "borderPlayer1";
-            this.borderPlayer1.Size = new System.Drawing.Size(798, 208);
+            this.borderPlayer1.Size = new System.Drawing.Size(810, 208);
             this.borderPlayer1.TabIndex = 15;
             // 
             // label1
@@ -153,19 +160,19 @@
             this.labelPlayerLevel.TabIndex = 30;
             this.labelPlayerLevel.Text = "3";
             // 
-            // pictureBox1
+            // charPicBox
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(29, 20);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(133, 121);
-            this.pictureBox1.TabIndex = 16;
-            this.pictureBox1.TabStop = false;
+            this.charPicBox.Location = new System.Drawing.Point(29, 20);
+            this.charPicBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.charPicBox.Name = "charPicBox";
+            this.charPicBox.Size = new System.Drawing.Size(133, 121);
+            this.charPicBox.TabIndex = 16;
+            this.charPicBox.TabStop = false;
             // 
             // HealthPB
             // 
             this.HealthPB.Location = new System.Drawing.Point(272, 57);
-            this.HealthPB.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.HealthPB.Margin = new System.Windows.Forms.Padding(4);
             this.HealthPB.Name = "HealthPB";
             this.HealthPB.Size = new System.Drawing.Size(133, 28);
             this.HealthPB.TabIndex = 31;
@@ -174,7 +181,7 @@
             // SanityPB
             // 
             this.SanityPB.Location = new System.Drawing.Point(272, 92);
-            this.SanityPB.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.SanityPB.Margin = new System.Windows.Forms.Padding(4);
             this.SanityPB.Name = "SanityPB";
             this.SanityPB.Size = new System.Drawing.Size(133, 28);
             this.SanityPB.TabIndex = 32;
@@ -183,7 +190,7 @@
             // IntPB
             // 
             this.IntPB.Location = new System.Drawing.Point(656, 33);
-            this.IntPB.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.IntPB.Margin = new System.Windows.Forms.Padding(4);
             this.IntPB.Name = "IntPB";
             this.IntPB.Size = new System.Drawing.Size(91, 25);
             this.IntPB.TabIndex = 33;
@@ -192,7 +199,7 @@
             // DexPB
             // 
             this.DexPB.Location = new System.Drawing.Point(656, 71);
-            this.DexPB.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.DexPB.Margin = new System.Windows.Forms.Padding(4);
             this.DexPB.Name = "DexPB";
             this.DexPB.Size = new System.Drawing.Size(91, 25);
             this.DexPB.TabIndex = 34;
@@ -201,7 +208,7 @@
             // StrengthPB
             // 
             this.StrengthPB.Location = new System.Drawing.Point(656, 110);
-            this.StrengthPB.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.StrengthPB.Margin = new System.Windows.Forms.Padding(4);
             this.StrengthPB.Name = "StrengthPB";
             this.StrengthPB.Size = new System.Drawing.Size(91, 25);
             this.StrengthPB.TabIndex = 35;
@@ -220,28 +227,65 @@
             // progressBar1
             // 
             this.progressBar1.Location = new System.Drawing.Point(272, 124);
-            this.progressBar1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.progressBar1.Margin = new System.Windows.Forms.Padding(4);
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(133, 28);
             this.progressBar1.TabIndex = 37;
             this.progressBar1.Value = 35;
             // 
-            // AttackBTN
+            // labelMainstory
             // 
-            this.AttackBTN.Location = new System.Drawing.Point(146, 260);
-            this.AttackBTN.Name = "AttackBTN";
-            this.AttackBTN.Size = new System.Drawing.Size(220, 98);
-            this.AttackBTN.TabIndex = 38;
-            this.AttackBTN.Text = "button1";
-            this.AttackBTN.UseVisualStyleBackColor = true;
-            this.AttackBTN.Click += new System.EventHandler(this.AttackBTN_Click);
+            this.labelMainstory.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelMainstory.Location = new System.Drawing.Point(26, 238);
+            this.labelMainstory.Name = "labelMainstory";
+            this.labelMainstory.Size = new System.Drawing.Size(760, 318);
+            this.labelMainstory.TabIndex = 38;
+            this.labelMainstory.Text = resources.GetString("labelMainstory.Text");
+            // 
+            // fileSystemWatcher1
+            // 
+            this.fileSystemWatcher1.EnableRaisingEvents = true;
+            this.fileSystemWatcher1.SynchronizingObject = this;
+            // 
+            // btnChoiceOne
+            // 
+            this.btnChoiceOne.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnChoiceOne.Location = new System.Drawing.Point(31, 599);
+            this.btnChoiceOne.Name = "btnChoiceOne";
+            this.btnChoiceOne.Size = new System.Drawing.Size(229, 94);
+            this.btnChoiceOne.TabIndex = 39;
+            this.btnChoiceOne.Text = "Choice A";
+            this.btnChoiceOne.UseVisualStyleBackColor = true;
+            // 
+            // btnChoiceTwo
+            // 
+            this.btnChoiceTwo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnChoiceTwo.Location = new System.Drawing.Point(296, 599);
+            this.btnChoiceTwo.Name = "btnChoiceTwo";
+            this.btnChoiceTwo.Size = new System.Drawing.Size(229, 94);
+            this.btnChoiceTwo.TabIndex = 40;
+            this.btnChoiceTwo.Text = "Choice B";
+            this.btnChoiceTwo.UseVisualStyleBackColor = true;
+            // 
+            // btnChoiceThree
+            // 
+            this.btnChoiceThree.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnChoiceThree.Location = new System.Drawing.Point(557, 599);
+            this.btnChoiceThree.Name = "btnChoiceThree";
+            this.btnChoiceThree.Size = new System.Drawing.Size(229, 94);
+            this.btnChoiceThree.TabIndex = 41;
+            this.btnChoiceThree.Text = "Choice C";
+            this.btnChoiceThree.UseVisualStyleBackColor = true;
             // 
             // mainGameScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(811, 578);
-            this.Controls.Add(this.AttackBTN);
+            this.ClientSize = new System.Drawing.Size(811, 705);
+            this.Controls.Add(this.btnChoiceThree);
+            this.Controls.Add(this.btnChoiceTwo);
+            this.Controls.Add(this.btnChoiceOne);
+            this.Controls.Add(this.labelMainstory);
             this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.StrengthPB);
@@ -258,13 +302,14 @@
             this.Controls.Add(this.PlayerNameLBL);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.charPicBox);
             this.Controls.Add(this.borderPlayer1);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "mainGameScreen";
             this.Text = "mainGameScreen";
             this.Load += new System.EventHandler(this.mainGameScreen_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.charPicBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -273,7 +318,7 @@
         #endregion
 
         private System.Windows.Forms.Label borderPlayer1;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox charPicBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label PlayerNameLBL;
@@ -290,6 +335,11 @@
         private System.Windows.Forms.ProgressBar StrengthPB;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ProgressBar progressBar1;
-        private System.Windows.Forms.Button AttackBTN;
+        private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
+        private System.Windows.Forms.Label labelMainstory;
+        private System.IO.FileSystemWatcher fileSystemWatcher1;
+        private System.Windows.Forms.Button btnChoiceThree;
+        private System.Windows.Forms.Button btnChoiceTwo;
+        private System.Windows.Forms.Button btnChoiceOne;
     }
 }
