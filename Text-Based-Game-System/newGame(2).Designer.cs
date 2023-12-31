@@ -43,20 +43,20 @@
             // txtChar
             // 
             this.txtChar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtChar.Location = new System.Drawing.Point(77, 339);
-            this.txtChar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtChar.Location = new System.Drawing.Point(58, 275);
+            this.txtChar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtChar.Multiline = true;
             this.txtChar.Name = "txtChar";
-            this.txtChar.Size = new System.Drawing.Size(359, 52);
+            this.txtChar.Size = new System.Drawing.Size(270, 43);
             this.txtChar.TabIndex = 2;
             // 
             // btnBeginStory
             // 
             this.btnBeginStory.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBeginStory.Location = new System.Drawing.Point(151, 414);
-            this.btnBeginStory.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnBeginStory.Location = new System.Drawing.Point(113, 336);
+            this.btnBeginStory.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnBeginStory.Name = "btnBeginStory";
-            this.btnBeginStory.Size = new System.Drawing.Size(196, 48);
+            this.btnBeginStory.Size = new System.Drawing.Size(147, 39);
             this.btnBeginStory.TabIndex = 3;
             this.btnBeginStory.Text = "Begin Story";
             this.btnBeginStory.UseVisualStyleBackColor = true;
@@ -66,19 +66,20 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(161, 37);
+            this.label1.Location = new System.Drawing.Point(121, 30);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(207, 29);
+            this.label1.Size = new System.Drawing.Size(162, 24);
             this.label1.TabIndex = 4;
             this.label1.Text = "Choose Character";
             // 
             // picboxChar2
             // 
             this.picboxChar2.Image = global::Text_Based_Game_System.Properties.Resources.female1;
-            this.picboxChar2.Location = new System.Drawing.Point(283, 81);
-            this.picboxChar2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.picboxChar2.Location = new System.Drawing.Point(212, 66);
+            this.picboxChar2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.picboxChar2.Name = "picboxChar2";
-            this.picboxChar2.Size = new System.Drawing.Size(200, 199);
+            this.picboxChar2.Size = new System.Drawing.Size(150, 162);
             this.picboxChar2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picboxChar2.TabIndex = 1;
             this.picboxChar2.TabStop = false;
@@ -86,10 +87,10 @@
             // picboxChar1
             // 
             this.picboxChar1.Image = global::Text_Based_Game_System.Properties.Resources.male1;
-            this.picboxChar1.Location = new System.Drawing.Point(40, 81);
-            this.picboxChar1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.picboxChar1.Location = new System.Drawing.Point(30, 66);
+            this.picboxChar1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.picboxChar1.Name = "picboxChar1";
-            this.picboxChar1.Size = new System.Drawing.Size(200, 199);
+            this.picboxChar1.Size = new System.Drawing.Size(150, 162);
             this.picboxChar1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picboxChar1.TabIndex = 0;
             this.picboxChar1.TabStop = false;
@@ -101,10 +102,10 @@
             this.btnBack1.FlatAppearance.BorderSize = 0;
             this.btnBack1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBack1.Font = new System.Drawing.Font("Showcard Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBack1.Location = new System.Drawing.Point(12, 12);
-            this.btnBack1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnBack1.Location = new System.Drawing.Point(9, 10);
+            this.btnBack1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnBack1.Name = "btnBack1";
-            this.btnBack1.Size = new System.Drawing.Size(65, 48);
+            this.btnBack1.Size = new System.Drawing.Size(49, 39);
             this.btnBack1.TabIndex = 30;
             this.btnBack1.Text = "⬅";
             this.btnBack1.UseVisualStyleBackColor = false;
@@ -114,31 +115,35 @@
             // 
             this.radBtnMale.AutoSize = true;
             this.radBtnMale.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radBtnMale.Location = new System.Drawing.Point(104, 296);
+            this.radBtnMale.Location = new System.Drawing.Point(78, 240);
+            this.radBtnMale.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.radBtnMale.Name = "radBtnMale";
-            this.radBtnMale.Size = new System.Drawing.Size(66, 24);
+            this.radBtnMale.Size = new System.Drawing.Size(56, 21);
             this.radBtnMale.TabIndex = 33;
             this.radBtnMale.TabStop = true;
             this.radBtnMale.Text = "Male";
             this.radBtnMale.UseVisualStyleBackColor = true;
+            this.radBtnMale.CheckedChanged += new System.EventHandler(this.radBtnMale_CheckedChanged);
             // 
             // radBtnFemale
             // 
             this.radBtnFemale.AutoSize = true;
             this.radBtnFemale.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radBtnFemale.Location = new System.Drawing.Point(337, 296);
+            this.radBtnFemale.Location = new System.Drawing.Point(253, 240);
+            this.radBtnFemale.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.radBtnFemale.Name = "radBtnFemale";
-            this.radBtnFemale.Size = new System.Drawing.Size(85, 24);
+            this.radBtnFemale.Size = new System.Drawing.Size(72, 21);
             this.radBtnFemale.TabIndex = 34;
             this.radBtnFemale.TabStop = true;
             this.radBtnFemale.Text = "Female";
             this.radBtnFemale.UseVisualStyleBackColor = true;
+            this.radBtnFemale.CheckedChanged += new System.EventHandler(this.radBtnFemale_CheckedChanged);
             // 
             // newGame_2_
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(524, 491);
+            this.ClientSize = new System.Drawing.Size(393, 399);
             this.Controls.Add(this.radBtnFemale);
             this.Controls.Add(this.radBtnMale);
             this.Controls.Add(this.btnBack1);
@@ -147,7 +152,7 @@
             this.Controls.Add(this.txtChar);
             this.Controls.Add(this.picboxChar2);
             this.Controls.Add(this.picboxChar1);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "newGame_2_";
             this.Text = "newGame_2_";
             ((System.ComponentModel.ISupportInitialize)(this.picboxChar2)).EndInit();
