@@ -14,6 +14,8 @@ namespace Text_Based_Game_System
     public partial class mainGameScreen : Form
     {
      
+        Random random = new Random();
+        
         
         public mainGameScreen()
         {
@@ -91,6 +93,11 @@ namespace Text_Based_Game_System
             //  int playerId = 1; // Replace with the actual player ID
             GetPlayerStats(latestPlayerId);
 
+            // transfer picBox from newGame to mainGame
+            charPicBox.Image = newGame_2_.charPic;
+
+            gameStart();
+
 
 
         }
@@ -100,6 +107,32 @@ namespace Text_Based_Game_System
             {
                 // Assuming labelForm2 is the name of your Label control
                 PlayerNameLBL.Text = value;
+            }
+
+        }
+
+        public void gameStart()
+        {
+            int rngScene = random.Next(1, 3);
+
+            Stack<int> rngChoices = new Stack<int>();
+
+            rngChoices.Push(rngScene);
+
+            switch(rngChoices.Pop())
+            {
+                case 1:
+                    labelMainstory.Text = "Random Scene ONEEEEEEEEEEE";
+                    break;
+
+                case 2:
+                    labelMainstory.Text = "Random Scene TWOOOOOOOOOOOO";
+                    break;
+
+                case 3:
+                    labelMainstory.Text = "Random Scene THREEEEEEEEEEEE";
+                    break;
+
             }
 
         }
