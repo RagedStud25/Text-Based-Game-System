@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,18 +14,37 @@ namespace Text_Based_Game_System
 {
     public partial class mainGameScreen : Form
     {
-     
-        Random random = new Random();
-        
-        
+        int choice = 1; //Get from database. THis will serve as the save point on the user.
+
+        public bool btnChoiceOneClicked = false;
+        public bool btnChoiceTwoClicked = false;
+        public bool btnChoiceThreeClicked = false;
+
         public mainGameScreen()
         {
             InitializeComponent();
-            
-          
+            gameStart();
         }
 
         int latestPlayerId = GetLatestPlayerID();
+
+        private void btnChoiceOne_Click(object sender, EventArgs e)
+        {
+            btnChoiceOneClicked = true;
+            gameStart();
+        }
+
+        private void btnChoiceTwo_Click(object sender, EventArgs e)
+        {
+            btnChoiceTwoClicked = true;
+            gameStart();
+        }
+
+        private void btnChoiceThree_Click(object sender, EventArgs e)
+        {
+            btnChoiceThreeClicked = true;
+            gameStart();
+        }
 
         private void labelHome_Click(object sender, EventArgs e)
         {
@@ -34,7 +54,7 @@ namespace Text_Based_Game_System
 
         static int GetLatestPlayerID()
         {
-            string connectionString = "Data Source=DESKTOP-O47AIOR\\SQLEXPRESS;Initial Catalog=DB_TextBasedGameSystem;Integrated Security=True";
+            string connectionString = "Data Source=LAPTOP-KJTSSLLV\\SQLEXPRESS;Initial Catalog=DB_TextBasedGameSystem;Integrated Security=True";
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
@@ -49,11 +69,9 @@ namespace Text_Based_Game_System
             }
         }
 
-      void GetPlayerStats(int playerId) {
+        void GetPlayerStats(int playerId) {
 
-            
-
-            string connectionString = "Data Source=DESKTOP-O47AIOR\\SQLEXPRESS;Initial Catalog=DB_TextBasedGameSystem;Integrated Security=True";
+            string connectionString = "Data Source=LAPTOP-KJTSSLLV\\SQLEXPRESS;Initial Catalog=DB_TextBasedGameSystem;Integrated Security=True";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -90,16 +108,15 @@ namespace Text_Based_Game_System
 
         private void mainGameScreen_Load(object sender, EventArgs e)
         {
+            HealthPB.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
+            HealthPB.ForeColor = Color.Red;
             //  int playerId = 1; // Replace with the actual player ID
             GetPlayerStats(latestPlayerId);
 
             // transfer picBox from newGame to mainGame
             charPicBox.Image = newGame_2_.charPic;
 
-            gameStart();
-
-
-
+            
         }
         public string TextBoxValue
         {
@@ -111,28 +128,73 @@ namespace Text_Based_Game_System
 
         }
 
+        public void mainStory_1() //Main story 1
+        {
+            labelMainstory.Text = "MAIN GAME STORY (1) \n Choices: \n A. Maitim \n B. Maputi \n C. Snigger";
+
+            if (btnChoiceOneClicked == true) //CHOICE A
+            {
+                labelMainstory.Text = "HELLO WhiteAss \n\n\n\n\n\n LOADING...";
+                btnChoiceOneClicked = false;
+                choice++;
+            }
+            else if (btnChoiceTwoClicked == true) //CHOICE B
+            {
+                labelMainstory.Text = "HELLO Maitim \n\n\n\n\n\n LOADING...";
+                btnChoiceTwoClicked = false;
+                choice++;
+            }
+            else if (btnChoiceThreeClicked == true) //CHOICE C
+            {
+                labelMainstory.Text = "HELLO Snig \n\n\n\n\n\n LOADING...";
+                btnChoiceThreeClicked = false;
+                choice++;
+            }
+        }
+
+        public void fillerStory_1() //Filler 1
+        {
+            labelMainstory.Text = "ARE YOU GAY? \n Choices: \n A. Yes \n B. No \n C. yesn't";
+
+            if (btnChoiceOneClicked == true)
+            {
+                labelMainstory.Text = "gayass faggot";
+                btnChoiceOneClicked = false;
+                choice++;
+            }
+        }
+
         public void gameStart()
         {
-            int rngScene = random.Next(1, 3);
-
-            Stack<int> rngChoices = new Stack<int>();
-
-            rngChoices.Push(rngScene);
-
-            switch(rngChoices.Pop())
+            switch (choice)
             {
                 case 1:
-                    labelMainstory.Text = "Random Scene ONEEEEEEEEEEE";
+                    mainStory_1();
                     break;
 
                 case 2:
-                    labelMainstory.Text = "Random Scene TWOOOOOOOOOOOO";
+                    fillerStory_1();
                     break;
 
                 case 3:
-                    labelMainstory.Text = "Random Scene THREEEEEEEEEEEE";
+                    labelMainstory.Text = "FILLER (2)";
                     break;
 
+                case 4:
+                    labelMainstory.Text = "MAIN GAME STORY (2)";
+                    break;
+
+                case 5:
+                    labelMainstory.Text = "FILLER (3)";
+                    break;
+
+                case 6:
+                    labelMainstory.Text = "FILLER (4)";
+                    break;
+
+                case 7:
+                    labelMainstory.Text = "MAIN GAME STORY (3)";
+                    break;
             }
 
         }
@@ -151,6 +213,16 @@ namespace Text_Based_Game_System
         {
             
         }
-      
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            gameStart();
+        }
+
+        private void automaticRefresh(object sender, EventArgs e)
+        {
+            gameStart();
+        }
+
     }
 }
