@@ -115,9 +115,6 @@ namespace Text_Based_Game_System
 
                         Console.WriteLine("Player and save point created successfully.");
                     }
-
-
-
                 }
 
                 mainGameScreen mainGameScreen = new mainGameScreen();
