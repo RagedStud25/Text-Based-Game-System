@@ -46,7 +46,7 @@
             this.DexPB = new System.Windows.Forms.ProgressBar();
             this.StrengthPB = new System.Windows.Forms.ProgressBar();
             this.label8 = new System.Windows.Forms.Label();
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.expPB = new System.Windows.Forms.ProgressBar();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.labelMainstory = new System.Windows.Forms.Label();
             this.fileSystemWatcher1 = new System.IO.FileSystemWatcher();
@@ -55,6 +55,13 @@
             this.btnChoiceThree = new System.Windows.Forms.Button();
             this.btnContinue = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.labelIint = new System.Windows.Forms.Label();
+            this.labelDex = new System.Windows.Forms.Label();
+            this.labelStrength = new System.Windows.Forms.Label();
+            this.labelSanity = new System.Windows.Forms.Label();
+            this.labelExp = new System.Windows.Forms.Label();
+            this.labelHealth = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.charPicBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).BeginInit();
             this.SuspendLayout();
@@ -107,7 +114,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(353, 116);
+            this.label4.Location = new System.Drawing.Point(492, 116);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(75, 20);
@@ -118,7 +125,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(353, 87);
+            this.label5.Location = new System.Drawing.Point(492, 87);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(75, 20);
@@ -129,7 +136,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(353, 58);
+            this.label6.Location = new System.Drawing.Point(492, 55);
             this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(94, 20);
@@ -140,7 +147,7 @@
             // 
             this.labelHome.AutoSize = true;
             this.labelHome.Font = new System.Drawing.Font("Showcard Gothic", 21F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelHome.Location = new System.Drawing.Point(523, 13);
+            this.labelHome.Location = new System.Drawing.Point(777, 14);
             this.labelHome.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelHome.Name = "labelHome";
             this.labelHome.Size = new System.Drawing.Size(38, 35);
@@ -152,7 +159,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(174, 141);
+            this.label7.Location = new System.Drawing.Point(174, 143);
             this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(50, 20);
@@ -163,7 +170,7 @@
             // 
             this.labelPlayerLevel.AutoSize = true;
             this.labelPlayerLevel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelPlayerLevel.Location = new System.Drawing.Point(234, 141);
+            this.labelPlayerLevel.Location = new System.Drawing.Point(234, 143);
             this.labelPlayerLevel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelPlayerLevel.Name = "labelPlayerLevel";
             this.labelPlayerLevel.Size = new System.Drawing.Size(18, 20);
@@ -183,42 +190,51 @@
             // HealthPB
             // 
             this.HealthPB.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.HealthPB.ForeColor = System.Drawing.Color.Indigo;
+            this.HealthPB.ForeColor = System.Drawing.Color.LimeGreen;
             this.HealthPB.Location = new System.Drawing.Point(239, 55);
             this.HealthPB.Name = "HealthPB";
-            this.HealthPB.Size = new System.Drawing.Size(105, 23);
+            this.HealthPB.Size = new System.Drawing.Size(142, 23);
+            this.HealthPB.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
             this.HealthPB.TabIndex = 31;
             this.HealthPB.Value = 100;
             // 
             // SanityPB
             // 
+            this.SanityPB.ForeColor = System.Drawing.Color.LimeGreen;
             this.SanityPB.Location = new System.Drawing.Point(238, 84);
             this.SanityPB.Name = "SanityPB";
-            this.SanityPB.Size = new System.Drawing.Size(105, 23);
+            this.SanityPB.Size = new System.Drawing.Size(143, 23);
+            this.SanityPB.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
             this.SanityPB.TabIndex = 32;
             this.SanityPB.Value = 89;
             // 
             // IntPB
             // 
-            this.IntPB.Location = new System.Drawing.Point(452, 55);
+            this.IntPB.ForeColor = System.Drawing.Color.LimeGreen;
+            this.IntPB.Location = new System.Drawing.Point(591, 55);
             this.IntPB.Name = "IntPB";
-            this.IntPB.Size = new System.Drawing.Size(105, 23);
+            this.IntPB.Size = new System.Drawing.Size(143, 23);
+            this.IntPB.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
             this.IntPB.TabIndex = 33;
-            this.IntPB.Value = 21;
+            this.IntPB.Value = 15;
             // 
             // DexPB
             // 
-            this.DexPB.Location = new System.Drawing.Point(452, 84);
+            this.DexPB.ForeColor = System.Drawing.Color.LimeGreen;
+            this.DexPB.Location = new System.Drawing.Point(591, 84);
             this.DexPB.Name = "DexPB";
-            this.DexPB.Size = new System.Drawing.Size(105, 23);
+            this.DexPB.Size = new System.Drawing.Size(143, 23);
+            this.DexPB.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
             this.DexPB.TabIndex = 34;
             this.DexPB.Value = 100;
             // 
             // StrengthPB
             // 
-            this.StrengthPB.Location = new System.Drawing.Point(452, 113);
+            this.StrengthPB.ForeColor = System.Drawing.Color.LimeGreen;
+            this.StrengthPB.Location = new System.Drawing.Point(591, 113);
             this.StrengthPB.Name = "StrengthPB";
-            this.StrengthPB.Size = new System.Drawing.Size(105, 23);
+            this.StrengthPB.Size = new System.Drawing.Size(143, 23);
+            this.StrengthPB.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
             this.StrengthPB.TabIndex = 35;
             this.StrengthPB.Value = 100;
             // 
@@ -233,13 +249,14 @@
             this.label8.TabIndex = 36;
             this.label8.Text = "Exp:";
             // 
-            // progressBar1
+            // expPB
             // 
-            this.progressBar1.Location = new System.Drawing.Point(238, 113);
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(106, 23);
-            this.progressBar1.TabIndex = 37;
-            this.progressBar1.Value = 35;
+            this.expPB.ForeColor = System.Drawing.Color.LimeGreen;
+            this.expPB.Location = new System.Drawing.Point(238, 113);
+            this.expPB.Name = "expPB";
+            this.expPB.Size = new System.Drawing.Size(143, 23);
+            this.expPB.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
+            this.expPB.TabIndex = 37;
             // 
             // labelMainstory
             // 
@@ -317,18 +334,88 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // labelIint
+            // 
+            this.labelIint.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelIint.Location = new System.Drawing.Point(740, 55);
+            this.labelIint.Name = "labelIint";
+            this.labelIint.Size = new System.Drawing.Size(52, 23);
+            this.labelIint.TabIndex = 44;
+            this.labelIint.Text = "000";
+            // 
+            // labelDex
+            // 
+            this.labelDex.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelDex.Location = new System.Drawing.Point(740, 84);
+            this.labelDex.Name = "labelDex";
+            this.labelDex.Size = new System.Drawing.Size(52, 23);
+            this.labelDex.TabIndex = 45;
+            this.labelDex.Text = "000";
+            // 
+            // labelStrength
+            // 
+            this.labelStrength.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelStrength.Location = new System.Drawing.Point(740, 113);
+            this.labelStrength.Name = "labelStrength";
+            this.labelStrength.Size = new System.Drawing.Size(52, 23);
+            this.labelStrength.TabIndex = 46;
+            this.labelStrength.Text = "000";
+            // 
+            // labelSanity
+            // 
+            this.labelSanity.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelSanity.Location = new System.Drawing.Point(387, 84);
+            this.labelSanity.Name = "labelSanity";
+            this.labelSanity.Size = new System.Drawing.Size(37, 23);
+            this.labelSanity.TabIndex = 48;
+            this.labelSanity.Text = "000";
+            // 
+            // labelExp
+            // 
+            this.labelExp.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelExp.Location = new System.Drawing.Point(387, 113);
+            this.labelExp.Name = "labelExp";
+            this.labelExp.Size = new System.Drawing.Size(37, 23);
+            this.labelExp.TabIndex = 49;
+            this.labelExp.Text = "000";
+            // 
+            // labelHealth
+            // 
+            this.labelHealth.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelHealth.Location = new System.Drawing.Point(387, 55);
+            this.labelHealth.Name = "labelHealth";
+            this.labelHealth.Size = new System.Drawing.Size(37, 23);
+            this.labelHealth.TabIndex = 47;
+            this.labelHealth.Text = "000";
+            // 
+            // label11
+            // 
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(421, 55);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(52, 23);
+            this.label11.TabIndex = 50;
+            this.label11.Text = "/100";
+            // 
             // mainGameScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(838, 758);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.labelExp);
+            this.Controls.Add(this.labelSanity);
+            this.Controls.Add(this.labelHealth);
+            this.Controls.Add(this.labelStrength);
+            this.Controls.Add(this.labelDex);
+            this.Controls.Add(this.labelIint);
             this.Controls.Add(this.btnContinue);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnChoiceThree);
             this.Controls.Add(this.btnChoiceTwo);
             this.Controls.Add(this.btnChoiceOne);
             this.Controls.Add(this.labelMainstory);
-            this.Controls.Add(this.progressBar1);
+            this.Controls.Add(this.expPB);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.StrengthPB);
             this.Controls.Add(this.DexPB);
@@ -376,7 +463,7 @@
         private System.Windows.Forms.ProgressBar DexPB;
         private System.Windows.Forms.ProgressBar StrengthPB;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.ProgressBar progressBar1;
+        private System.Windows.Forms.ProgressBar expPB;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
         private System.Windows.Forms.Label labelMainstory;
         private System.IO.FileSystemWatcher fileSystemWatcher1;
@@ -385,5 +472,12 @@
         private System.Windows.Forms.Button btnChoiceOne;
         private System.Windows.Forms.Button btnContinue;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label labelIint;
+        private System.Windows.Forms.Label labelStrength;
+        private System.Windows.Forms.Label labelDex;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label labelExp;
+        private System.Windows.Forms.Label labelSanity;
+        private System.Windows.Forms.Label labelHealth;
     }
 }
