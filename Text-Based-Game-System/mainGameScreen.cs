@@ -16,7 +16,7 @@ namespace Text_Based_Game_System
     {
         //Get from database. THis will serve as the save point on the user.
 
-        int choice = 1; 
+        int playerChoiceSavepoint = 1; 
 
         public bool btnChoiceOneClicked = false;
         public bool btnChoiceTwoClicked = false;
@@ -71,7 +71,7 @@ namespace Text_Based_Game_System
 
         static int GetLatestPlayerID()
         {
-            string connectionString = "Data Source=DESKTOP-O47AIOR\\SQLEXPRESS;Initial Catalog=DB_TextBasedGameSystem;Integrated Security=True";
+            string connectionString = "Data Source=LAPTOP-KJTSSLLV\\SQLEXPRESS;Initial Catalog=DB_TextBasedGameSystem;Integrated Security=True";
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
@@ -88,7 +88,7 @@ namespace Text_Based_Game_System
 
         void GetPlayerStats(int playerId) {
 
-            string connectionString = "Data Source=DESKTOP-O47AIOR\\SQLEXPRESS;Initial Catalog=DB_TextBasedGameSystem;Integrated Security=True";
+            string connectionString = "Data Source=LAPTOP-KJTSSLLV\\SQLEXPRESS;Initial Catalog=DB_TextBasedGameSystem;Integrated Security=True";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -159,7 +159,7 @@ namespace Text_Based_Game_System
 
                 btnContinue.Enabled = true;
                 btnContinue.Visible = true;
-                choice++;
+                playerChoiceSavepoint++;
         }
 
         // filler 1
@@ -176,7 +176,7 @@ namespace Text_Based_Game_System
                 expPB.Value = playerExp;
                 labelExp.Text = playerExp.ToString();
 
-                //choice++;
+                //playerChoiceSavepoint++;
             }
             else if (btnChoiceTwoClicked == true ) //CHOICE B
             {
@@ -202,7 +202,7 @@ namespace Text_Based_Game_System
                     expPB.Value = playerExp;
                     labelExp.Text = playerExp.ToString();
 
-                    choice++;
+                    playerChoiceSavepoint++;
                     
                 }
                 else
@@ -219,7 +219,7 @@ namespace Text_Based_Game_System
                     labelSanity.Text = playerSanity.ToString();
                     labelExp.Text = playerExp.ToString();
 
-                    choice++;
+                    playerChoiceSavepoint++;
                 }
 
             }
@@ -237,7 +237,7 @@ namespace Text_Based_Game_System
                 labelSanity.Text = playerSanity.ToString();
                 labelExp.Text = playerExp.ToString();
 
-                choice++;
+                playerChoiceSavepoint++;
             }
         }
 
@@ -255,7 +255,7 @@ namespace Text_Based_Game_System
                 expPB.Value = playerExp;
                 labelExp.Text = playerExp.ToString();
 
-                choice++;
+                playerChoiceSavepoint++;
             }
             else if (btnChoiceTwoClicked == true) //CHOICE B
             {
@@ -271,7 +271,7 @@ namespace Text_Based_Game_System
                 labelSanity.Text = playerSanity.ToString();
                 labelExp.Text = playerExp.ToString();
 
-                choice++;
+                playerChoiceSavepoint++;
             }
             else if (btnChoiceThreeClicked == true) //CHOICE C
             {
@@ -287,7 +287,7 @@ namespace Text_Based_Game_System
                 labelSanity.Text = playerSanity.ToString();
                 labelExp.Text = playerExp.ToString();
 
-                choice++;
+                playerChoiceSavepoint++;
             }
         }
 
@@ -305,7 +305,7 @@ namespace Text_Based_Game_System
                 expPB.Value = playerExp;
                 labelExp.Text = playerExp.ToString();
 
-                choice++;
+                playerChoiceSavepoint++;
             }
             else if (btnChoiceTwoClicked == true) //CHOICE B
             {
@@ -336,7 +336,7 @@ namespace Text_Based_Game_System
                     labelSanity.Text = playerSanity.ToString();
                     labelExp.Text = playerExp.ToString();
 
-                    choice++;
+                    playerChoiceSavepoint++;
                 }
                 else
                 {
@@ -352,7 +352,7 @@ namespace Text_Based_Game_System
                     labelSanity.Text = playerSanity.ToString();
                     labelExp.Text = playerExp.ToString();
 
-                    choice++;
+                    playerChoiceSavepoint++;
                 }
             }
             else if (btnChoiceThreeClicked == true) //CHOICE C
@@ -364,7 +364,7 @@ namespace Text_Based_Game_System
                 expPB.Value = playerExp;
                 labelExp.Text = playerExp.ToString();
 
-                choice++;
+                playerChoiceSavepoint++;
             }
         }
 
@@ -387,7 +387,7 @@ namespace Text_Based_Game_System
                 labelSanity.Text = playerSanity.ToString();
                 labelExp.Text = playerExp.ToString();
 
-                choice++;
+                playerChoiceSavepoint++;
             }
             else if (btnChoiceTwoClicked == true) //CHOICE B
             {
@@ -398,7 +398,7 @@ namespace Text_Based_Game_System
                 expPB.Value = playerExp;
                 labelExp.Text = playerExp.ToString();
 
-                choice++;
+                playerChoiceSavepoint++;
             }
             else if (btnChoiceThreeClicked == true) //CHOICE C
             {
@@ -416,7 +416,7 @@ namespace Text_Based_Game_System
 
                 labelSanity.Text = playerSanity.ToString();
                 labelExp.Text = playerExp.ToString();
-                choice++;
+                playerChoiceSavepoint++;
             }
         }
 
@@ -428,7 +428,7 @@ namespace Text_Based_Game_System
 
         public void gameStart()
         {
-            switch (choice)
+            switch (playerChoiceSavepoint)
             {
                 case 1:
                     mainStory_1();
