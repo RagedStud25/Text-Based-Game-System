@@ -16,7 +16,7 @@ namespace Text_Based_Game_System
     {
         //Get from database. THis will serve as the save point on the user.
 
-        int playerChoiceSavepoint = 1; 
+        int playerChoiceSavepoint = 1;
 
         public bool btnChoiceOneClicked = false;
         public bool btnChoiceTwoClicked = false;
@@ -24,17 +24,38 @@ namespace Text_Based_Game_System
         public bool btnContinueClicked = false;
 
         // player stats
-        int playerInt;
-        int playerDex;
-        int playerStr;
+        public static int playerInt;
+        public static int playerDex;
+        public static int playerStr;
         int playerHealth;
         int playerExp;
         int playerSanity;
+        int playerLevel;
+
+        levelUpBoxUserForm levelUpBoxUser = new levelUpBoxUserForm();
 
         public mainGameScreen()
         {
             InitializeComponent();
             gameStart();
+        }
+
+        //Getter and setter method for level up pop up form//
+        public static int getlabelSTR
+        {
+            get { return playerStr; }
+            set { playerStr = value; }
+        }
+        public static int getlabelINT
+        {
+            get { return playerInt; }
+            set { playerInt = value; }
+        }
+
+        public static int getlabelDEX
+        {
+            get { return playerDex; }
+            set { playerDex = value; }
         }
 
         int latestPlayerId = GetLatestPlayerID();
@@ -139,7 +160,11 @@ namespace Text_Based_Game_System
             // transfer picBox from newGame to mainGame
             charPicBox.Image = newGame_2_.charPic;
 
-            
+            playerInt = Convert.ToInt32(labelIint.Text);
+            playerDex = Convert.ToInt32(labelDex.Text);
+            playerStr = Convert.ToInt32(labelStrength.Text);
+
+
         }
         public string TextBoxValue
         {
@@ -152,14 +177,14 @@ namespace Text_Based_Game_System
         }
 
         // main story 1
-        public void mainStory_1() 
+        public void mainStory_1()
         {
 
-                labelMainstory.Text = "On a Monday morning, you woke up to the sound of your alarm. Today's your first day working as a waiter at a restaurant called \"Joblibee.\" You're nervous right now because you remembered that it's a famous restaurant and the interviewer told you that you must be able to work under pressure. \r\n\r\n\"I can do this!\" you said to yourself, while looking at the mirror, placing your nameplate on your polo. \r\n \nClick Continue to Proceed.";
+            labelMainstory.Text = "On a Monday morning, you woke up to the sound of your alarm. Today's your first day working as a waiter at a restaurant called \"Joblibee.\" You're nervous right now because you remembered that it's a famous restaurant and the interviewer told you that you must be able to work under pressure. \r\n\r\n\"I can do this!\" you said to yourself, while looking at the mirror, placing your nameplate on your polo. \r\n \nClick Continue to Proceed.";
 
-                btnContinue.Enabled = true;
-                btnContinue.Visible = true;
-                playerChoiceSavepoint++;
+            btnContinue.Enabled = true;
+            btnContinue.Visible = true;
+            playerChoiceSavepoint++;
         }
 
         // filler 1
@@ -178,7 +203,7 @@ namespace Text_Based_Game_System
 
                 //playerChoiceSavepoint++;
             }
-            else if (btnChoiceTwoClicked == true ) //CHOICE B
+            else if (btnChoiceTwoClicked == true) //CHOICE B
             {
                 // base chance of success
                 int baseChance = 2;
@@ -188,12 +213,12 @@ namespace Text_Based_Game_System
 
                 // generate number from 1 to 100
                 Random random = new Random();
-                int choice = random.Next(1,100);
+                int choice = random.Next(1, 100);
 
                 // Calculate the chance of success based on player stats
                 int chanceOfSucess = baseChance + IntStats;
 
-                if(choice <= chanceOfSucess)
+                if (choice <= chanceOfSucess)
                 {
                     labelMainstory.Text = "\nSuccess! \n\n.. you saw an unknown person passing by and you approached him. \r\n\r\n\"Excuse me--\" you asked..\r\n\r\n\"Who are you? What do you need?\" said the unknown person, giving you confused looks. \r\n\r\n\"May I ask if you can help that woman?\" you pointed at the old woman.\r\n\r\n\"Of course. Go on with your errands now.\"\r\n\r\nit made sense that the man doesn't want to help the woman, so you just did it yourself. \r\nThe woman kindly helped the old woman, and you went on your way to the interview room.\r\n \nClick Continue";
                     btnChoiceTwoClicked = false;
@@ -203,7 +228,7 @@ namespace Text_Based_Game_System
                     labelExp.Text = playerExp.ToString();
 
                     playerChoiceSavepoint++;
-                    
+
                 }
                 else
                 {
@@ -426,8 +451,25 @@ namespace Text_Based_Game_System
             labelMainstory.Text = "You came home tired and longing for your bed. \r\n\r\n“This is so tiring, I almost forgot I need to have time for myself. Maybe I should just do it tomorrow. I really need to take a rest.”\r\n\r\nTo be continued…\r\n";
         }
 
+        public void playerLevelUpMechanics() // If user's xp reached 100. This will show the level up stats form.
+        {
+            playerLevel = Convert.ToInt32(labelPlayerLevel.Text);
+
+            if(playerExp == 100)
+            {
+                playerLevel++;
+                labelPlayerLevel.Text = playerLevel.ToString();
+                playerExp = 0;
+                expPB.Value = playerExp;
+                levelUpBoxUser.Visible = true;
+
+            }
+        }
+
         public void gameStart()
         {
+            
+
             switch (playerChoiceSavepoint)
             {
                 case 1:
@@ -466,6 +508,15 @@ namespace Text_Based_Game_System
             gameStart();
         }
 
+        private void btnTestExpiGen_Click(object sender, EventArgs e)
+        {
+            playerExp = expPB.Value + 25;
+            expPB.Value = playerExp;
+        }
 
+        private void automaticRefresh(object sender, EventArgs e) //Timer for refreshing the playerlevelupmechanics to detect real-time adjusstments.
+        {
+            playerLevelUpMechanics();
+        }
     }
 }
