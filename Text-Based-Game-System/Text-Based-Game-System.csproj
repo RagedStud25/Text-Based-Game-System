@@ -46,6 +46,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DatabaseConnectionHelper.cs" />
+    <Compile Include="saveGame.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="saveGame.Designer.cs">
+      <DependentUpon>saveGame.cs</DependentUpon>
+    </Compile>
+    <Compile Include="levelUpBoxUserForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="levelUpBoxUserForm.Designer.cs">
+      <DependentUpon>levelUpBoxUserForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="loadGame%282%29.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -72,6 +85,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="saveGame.resx">
+      <DependentUpon>saveGame.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="levelUpBoxUserForm.resx">
+      <DependentUpon>levelUpBoxUserForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="loadGame%282%29.resx">
       <DependentUpon>loadGame%282%29.cs</DependentUpon>
     </EmbeddedResource>
@@ -120,6 +139,9 @@
     <Content Include="Database\GetPlayerStats.txt" />
     <Content Include="Database\InsertPlayerWithRandomStatsAndSavePoint.txt" />
     <Content Include="Database\InsertPlayerWithSavePoint.txt" />
+    <Content Include="Database\GetPlayerNameWithID.txt" />
+    <Content Include="Database\UpdatePlayerWithStats.txt" />
+    <Content Include="Database\UpdatePlayerWithSavepoint.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

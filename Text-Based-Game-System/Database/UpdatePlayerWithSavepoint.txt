@@ -1,0 +1,37 @@
+﻿CREATE PROCEDURE dbo.UpdatePlayerWithSavePoint
+    @playerID INT,
+    @playerNameParam NVARCHAR(255),
+    @playerGenderParam NVARCHAR(15),
+    @playerHealthParam INT,
+    @playerSanityParam INT,
+    @playerStrengthParam INT,
+    @playerIntelligenceParam INT,
+    @playerDexterityParam INT,
+    @playerLevelParam INT,
+    @progressDataParam NVARCHAR(MAX)
+AS
+BEGIN
+    UPDATE PlayerDetails
+    SET
+        PlayerName = @playerNameParam,
+        PlayerGender = @playerGenderParam
+    WHERE
+        PlayerID = @playerID;
+
+    UPDATE PlayerStats
+    SET
+        PlayerHealth = @playerHealthParam,
+        PlayerSanity = @playerSanityParam,
+        PlayerStrength = @playerStrengthParam,
+        PlayerIntelligence = @playerIntelligenceParam,
+        PlayerDexterity = @playerDexterityParam,
+        PlayerLevel = @playerLevelParam
+    WHERE
+        PlayerID = @playerID;
+
+    UPDATE PlayerSavePoint
+    SET
+        ProgressData = @progressDataParam
+    WHERE
+        PlayerID = @playerID;
+END

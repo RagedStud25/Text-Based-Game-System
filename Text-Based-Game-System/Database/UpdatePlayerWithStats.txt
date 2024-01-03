@@ -1,0 +1,9 @@
+﻿CREATE PROCEDURE UpdatePlayerStats
+    @playerID INT,
+    @playerLevel INT
+AS
+BEGIN
+    UPDATE PlayerStats
+    SET PlayerLevel = @playerLevel
+    WHERE PlayerID = @playerID;
+END;

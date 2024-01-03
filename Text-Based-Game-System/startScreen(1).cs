@@ -32,5 +32,10 @@ namespace Text_Based_Game_System
             this.Visible = false;
             loadGame_2_.Visible = true;
         }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

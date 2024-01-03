@@ -41,10 +41,10 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 50F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Salmon;
-            this.label1.Location = new System.Drawing.Point(262, 197);
+            this.label1.Location = new System.Drawing.Point(295, 246);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(0, 95);
+            this.label1.Size = new System.Drawing.Size(0, 113);
             this.label1.TabIndex = 0;
             // 
             // label2
@@ -52,28 +52,29 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 50F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.IndianRed;
-            this.label2.Location = new System.Drawing.Point(249, 346);
+            this.label2.Location = new System.Drawing.Point(280, 432);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(0, 95);
+            this.label2.Size = new System.Drawing.Size(0, 113);
             this.label2.TabIndex = 1;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Old English Text MT", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(43, 54);
+            this.label3.Location = new System.Drawing.Point(48, 68);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(467, 143);
+            this.label3.Size = new System.Drawing.Size(560, 171);
             this.label3.TabIndex = 2;
             this.label3.Text = "Joblibee";
             // 
             // btnLoadGame
             // 
             this.btnLoadGame.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLoadGame.Location = new System.Drawing.Point(176, 295);
+            this.btnLoadGame.Location = new System.Drawing.Point(198, 369);
+            this.btnLoadGame.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnLoadGame.Name = "btnLoadGame";
-            this.btnLoadGame.Size = new System.Drawing.Size(194, 50);
+            this.btnLoadGame.Size = new System.Drawing.Size(218, 62);
             this.btnLoadGame.TabIndex = 4;
             this.btnLoadGame.Text = "Load Game";
             this.btnLoadGame.UseVisualStyleBackColor = true;
@@ -82,19 +83,22 @@
             // btnExit
             // 
             this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExit.Location = new System.Drawing.Point(176, 351);
+            this.btnExit.Location = new System.Drawing.Point(198, 439);
+            this.btnExit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(194, 50);
+            this.btnExit.Size = new System.Drawing.Size(218, 62);
             this.btnExit.TabIndex = 5;
             this.btnExit.Text = "Exit";
             this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // btnNewGamee
             // 
             this.btnNewGamee.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNewGamee.Location = new System.Drawing.Point(176, 238);
+            this.btnNewGamee.Location = new System.Drawing.Point(198, 298);
+            this.btnNewGamee.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnNewGamee.Name = "btnNewGamee";
-            this.btnNewGamee.Size = new System.Drawing.Size(194, 50);
+            this.btnNewGamee.Size = new System.Drawing.Size(218, 62);
             this.btnNewGamee.TabIndex = 6;
             this.btnNewGamee.Text = "New Game";
             this.btnNewGamee.UseVisualStyleBackColor = true;
@@ -102,16 +106,16 @@
             // 
             // startScreen
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(550, 482);
+            this.ClientSize = new System.Drawing.Size(619, 602);
             this.Controls.Add(this.btnNewGamee);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnLoadGame);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "startScreen";
             this.Text = "Start Screen";
             this.ResumeLayout(false);

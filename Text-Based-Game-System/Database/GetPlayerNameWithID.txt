@@ -1,0 +1,6 @@
+﻿CREATE PROCEDURE GetPlayerNameById
+    @PlayerID INT
+AS
+BEGIN
+    SELECT PlayerName FROM PlayerDetails WHERE PlayerID = @PlayerID;
+END;

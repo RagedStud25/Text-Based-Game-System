@@ -117,40 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="folderBrowserDialog1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
-  <data name="labelMainstory.Text" xml:space="preserve">
-    <value>Story will go here. Story will go here. Story will go here. Story will go here. 
-Story will go here. Story will go here. Story will go here. Story will go here. 
-Story will go here. Story will go here. Story will go here. Story will go here. 
-Story will go here. Story will go here. Story will go here. Story will go here. 
-Story will go here. Story will go here. Story will go here. Story will go here. 
-Story will go here. Story will go here. Story will go here. Story will go here. 
-Story will go here. Story will go here. Story will go here. Story will go here. 
-Story will go here. Story will go here. Story will go here. Story will go here. 
-Story will go here. Story will go here. Story will go here. Story will go here. 
-Story will go here. Story will go here. Story will go here. Story will go here. 
-Story will go here. Story will go here. Story will go here. Story will go here. 
-Story will go here. Story will go here. Story will go here. Story will go here. 
-Story will go here. Story will go here. Story will go here. Story will go here. 
-Story will go here. Story will go here. Story will go here. Story will go here. 
-Story will go here. Story will go here. Story will go here. Story will go here. 
-Story will go here. Story will go here. Story will go here. Story will go here. 
-Story will go here. Story will go here. Story will go here. Story will go here. 
-Story will go here. Story will go here. Story will go here. Story will go here. 
-Story will go here. Story will go here. Story will go here. Story will go here. 
-
-
-</value>
-  </data>
-  <metadata name="fileSystemWatcher1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>221, 17</value>
-  </metadata>
-  <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>51</value>
-  </metadata>
-  <metadata name="timerRefresh.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>412, 17</value>
-  </metadata>
 </root>

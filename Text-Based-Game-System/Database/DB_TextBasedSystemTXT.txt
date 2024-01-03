@@ -1,17 +1,30 @@
-CREATE TABLE Player(
-PlayerID INT PRIMARY KEY, 
-PlayerHealth INT, 
-PlayerSanity INT, 
-PlayerStrength INT, 
-PlayerIntelligence INT,
-PlayerDexterity INT,
-Playerlevel INT,
-Username VARCHAR(255) NOT NULL,
--- Add other player-related fields as needed
+CREATE DATABASE ProjectFinal
+
+USE ProjectFinal;
+
+CREATE TABLE PlayerDetails(
+    PlayerID INT PRIMARY KEY IDENTITY(1,1), -- Auto-incrementing identity column
+    PlayerName NVARCHAR(255) NOT NULL,
+    PlayerGender NVARCHAR(15)
 );
 
-CREATE TABLE PlayerProgress(
-ProgressID INT PRIMARY KEY, 
-ProgressData TEXT,
-PlayerID INT FOREIGN KEY REFERENCES Player(PlayerID)
+CREATE TABLE PlayerSavePoint(
+    SavePointID INT PRIMARY KEY IDENTITY(1,1), 
+    PlayerID INT,
+    SaveTime DATETIME DEFAULT GETDATE(),
+    ProgressData NVARCHAR(MAX),
+    SaveSlot INT,
+    FOREIGN KEY (PlayerID) REFERENCES PlayerDetails(PlayerID)
+);
+
+
+CREATE TABLE PlayerStats(
+    PlayerID INT PRIMARY KEY, 
+    PlayerHealth INT, 
+    PlayerSanity INT, 
+    PlayerStrength INT, 
+    PlayerIntelligence INT,
+    PlayerDexterity INT,
+    PlayerLevel INT,
+    FOREIGN KEY (PlayerID) REFERENCES PlayerDetails(PlayerID)
 );

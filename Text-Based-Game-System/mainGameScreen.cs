@@ -1,43 +1,82 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
+using System.Globalization;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Text_Based_Game_System
 {
     public partial class mainGameScreen : Form
     {
-        //Get from database. THis will serve as the save point on the user.
-
-        int playerChoiceSavepoint = 1; 
+        private DatabaseHelper databaseHelper;
+        private frmSave saveForm;
+        private int playerChoiceSavepoint = 1;
 
         public bool btnChoiceOneClicked = false;
         public bool btnChoiceTwoClicked = false;
         public bool btnChoiceThreeClicked = false;
         public bool btnContinueClicked = false;
 
-        // player stats
-        int playerInt;
-        int playerDex;
-        int playerStr;
-        int playerHealth;
-        int playerExp;
-        int playerSanity;
+        public static int playerInt;
+        public static int playerDex;
+        public static int playerStr;
+        private int playerHealth;
+        private int playerExp;
+        private int playerSanity;
+        private int playerLevel;
+
+        // Use consistent capitalization for the latestPlayerId property
+        public int latestPlayerId;
+
+        // Other properties added based on the query results
+        public int LatestPlayerId { get; set; }
+        public string LatestPlayerName { get; set; }
+        public string LatestPlayerGender { get; set; }
+        public int LatestPlayerHealth { get; set; }
+        public int LatestPlayerSanity { get; set; }
+        public int LatestPlayerStrength { get; set; }
+        public int LatestPlayerIntelligence { get; set; }
+        public int LatestPlayerDexterity { get; set; }
+        public int LatestPlayerLevel { get; set; }
 
         public mainGameScreen()
         {
             InitializeComponent();
-            gameStart();
+            InitializeLatestPlayerId();
+            databaseHelper = new DatabaseHelper();
+            LoadLastPlayerChoice(); // Call the method to load the last player choice
+        }
+        private void LoadLastPlayerChoice()
+        {
+            playerChoiceSavepoint = databaseHelper.GetLastPlayerChoice(latestPlayerId);
+
         }
 
-        int latestPlayerId = GetLatestPlayerID();
+        private void InitializeLatestPlayerId()
+        {
+            databaseHelper = new DatabaseHelper();
+            latestPlayerId = databaseHelper.GetLatestPlayerID();
+        }
+
+        // Getter and setter method for level up pop up form
+        public static int GetLabelSTR
+        {
+            get { return playerStr; }
+            set { playerStr = value; }
+        }
+
+        public static int GetLabelINT
+        {
+            get { return playerInt; }
+            set { playerInt = value; }
+        }
+
+        public static int GetLabelDEX
+        {
+            get { return playerDex; }
+            set { playerDex = value; }
+        }
 
         private void btnChoiceOne_Click(object sender, EventArgs e)
         {
@@ -67,79 +106,48 @@ namespace Text_Based_Game_System
         {
             startScreen startScreen = new startScreen();
             startScreen.Show();
-        }
-
-        static int GetLatestPlayerID()
-        {
-            string connectionString = "Data Source=LAPTOP-KJTSSLLV\\SQLEXPRESS;Initial Catalog=DB_TextBasedGameSystem;Integrated Security=True";
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                connection.Open();
-
-                using (SqlCommand command = new SqlCommand("GetLatestPlayerID", connection))
-                {
-                    command.CommandType = CommandType.StoredProcedure;
-
-                    // Execute the command and retrieve the latest player ID
-                    return Convert.ToInt32(command.ExecuteScalar());
-                }
-            }
-        }
-
-        void GetPlayerStats(int playerId) {
-
-            string connectionString = "Data Source=LAPTOP-KJTSSLLV\\SQLEXPRESS;Initial Catalog=DB_TextBasedGameSystem;Integrated Security=True";
-
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                connection.Open();
-
-                using (SqlCommand command = new SqlCommand("GetPlayerStats", connection))
-                {
-                    command.CommandType = CommandType.StoredProcedure;
-                    command.Parameters.Add(new SqlParameter("@playerID", SqlDbType.Int) { Value = playerId });
-
-                    using (SqlDataReader reader = command.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            // Access data using column names or indices
-                            int playerHealth = Convert.ToInt32(reader["PlayerHealth"]);
-                            int playerSanity = Convert.ToInt32(reader["PlayerSanity"]);
-                            int playerStrength = Convert.ToInt32(reader["PlayerStrength"]);
-                            int playerIntelligence = Convert.ToInt32(reader["PlayerIntelligence"]);
-                            int playerDexterity = Convert.ToInt32(reader["PlayerDexterity"]);
-
-                            HealthPB.Value = playerHealth;
-                            SanityPB.Value = playerSanity;
-                            StrengthPB.Value = playerStrength;
-                            IntPB.Value = playerIntelligence;
-                            DexPB.Value = playerDexterity;
-
-                            labelIint.Text = playerIntelligence.ToString();
-                            labelDex.Text = playerDexterity.ToString();
-                            labelStrength.Text = playerStrength.ToString();
-
-                            labelHealth.Text = playerHealth.ToString();
-                            labelSanity.Text = playerSanity.ToString();
-                            labelExp.Text = playerExp.ToString();
-
-                            Console.WriteLine($"Player Stats: Health={playerHealth}, Sanity={playerSanity}, Strength={playerStrength}, Intelligence={playerIntelligence}, Dexterity={playerDexterity}");
-                        }
-                    }
-                }
-            }
+            this.Close(); // lx
         }
 
         private void mainGameScreen_Load(object sender, EventArgs e)
         {
-            //  int playerId = 1; // Replace with the actual player ID
-            GetPlayerStats(latestPlayerId);
+            int playerId = latestPlayerId; // Replace with the actual player ID
+            DatabaseHelper databaseHelper = new DatabaseHelper();
+            databaseHelper.GetPlayerStats(playerId, HealthPB, SanityPB, StrengthPB, IntPB, DexPB, labelIint, labelDex, labelStrength, labelHealth, labelSanity, labelPlayerLevel);
 
-            // transfer picBox from newGame to mainGame
-            charPicBox.Image = newGame_2_.charPic;
+            // Parse player level
+            if (int.TryParse(labelPlayerLevel.Text, out int parsedLevel))
+            {
+                playerLevel = parsedLevel;
+            }
+            else
+            {
+                MessageBox.Show($"Error: Unable to parse player level. Default value will be used.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Console.WriteLine($"Error: Unable to parse player level. Input: '{labelPlayerLevel.Text}'");
 
-            
+                // Set a default value for player level
+                playerLevel = 1;
+            }
+
+            // Transfer picBox from newGame to mainGame
+            // charPicBox.Image = newGame_2_.charPic;
+
+            // Set other player stats
+            playerInt = Convert.ToInt32(labelIint.Text);
+            playerDex = Convert.ToInt32(labelDex.Text);
+            playerStr = Convert.ToInt32(labelStrength.Text);
+
+            // Additional initialization, if needed
+
+            // Now, you can use the parsed values as needed in the rest of your code
+
+            // Example: Update UI with parsed values
+            labelPlayerLevel.Text = playerLevel.ToString();
+            labelExp.Text = expPB.Value.ToString();
+            labelSanity.Text = playerSanity.ToString();
+
+            // Call the game start method to initiate the story based on player choices
+            gameStart();
         }
         public string TextBoxValue
         {
@@ -152,14 +160,14 @@ namespace Text_Based_Game_System
         }
 
         // main story 1
-        public void mainStory_1() 
+        public void mainStory_1()
         {
 
-                labelMainstory.Text = "On a Monday morning, you woke up to the sound of your alarm. Today's your first day working as a waiter at a restaurant called \"Joblibee.\" You're nervous right now because you remembered that it's a famous restaurant and the interviewer told you that you must be able to work under pressure. \r\n\r\n\"I can do this!\" you said to yourself, while looking at the mirror, placing your nameplate on your polo. \r\n \nClick Continue to Proceed.";
+            labelMainstory.Text = "On a Monday morning, you woke up to the sound of your alarm. Today's your first day working as a waiter at a restaurant called \"Joblibee.\" You're nervous right now because you remembered that it's a famous restaurant and the interviewer told you that you must be able to work under pressure. \r\n\r\n\"I can do this!\" you said to yourself, while looking at the mirror, placing your nameplate on your polo. \r\n \nClick Continue to Proceed.";
 
-                btnContinue.Enabled = true;
-                btnContinue.Visible = true;
-                playerChoiceSavepoint++;
+            btnContinue.Enabled = true;
+            btnContinue.Visible = true;
+            playerChoiceSavepoint++;
         }
 
         // filler 1
@@ -178,7 +186,7 @@ namespace Text_Based_Game_System
 
                 //playerChoiceSavepoint++;
             }
-            else if (btnChoiceTwoClicked == true ) //CHOICE B
+            else if (btnChoiceTwoClicked == true) //CHOICE B
             {
                 // base chance of success
                 int baseChance = 2;
@@ -188,12 +196,12 @@ namespace Text_Based_Game_System
 
                 // generate number from 1 to 100
                 Random random = new Random();
-                int choice = random.Next(1,100);
+                int choice = random.Next(1, 100);
 
                 // Calculate the chance of success based on player stats
                 int chanceOfSucess = baseChance + IntStats;
 
-                if(choice <= chanceOfSucess)
+                if (choice <= chanceOfSucess)
                 {
                     labelMainstory.Text = "\nSuccess! \n\n.. you saw an unknown person passing by and you approached him. \r\n\r\n\"Excuse me--\" you asked..\r\n\r\n\"Who are you? What do you need?\" said the unknown person, giving you confused looks. \r\n\r\n\"May I ask if you can help that woman?\" you pointed at the old woman.\r\n\r\n\"Of course. Go on with your errands now.\"\r\n\r\nit made sense that the man doesn't want to help the woman, so you just did it yourself. \r\nThe woman kindly helped the old woman, and you went on your way to the interview room.\r\n \nClick Continue";
                     btnChoiceTwoClicked = false;
@@ -203,7 +211,7 @@ namespace Text_Based_Game_System
                     labelExp.Text = playerExp.ToString();
 
                     playerChoiceSavepoint++;
-                    
+
                 }
                 else
                 {
@@ -425,9 +433,11 @@ namespace Text_Based_Game_System
         {
             labelMainstory.Text = "You came home tired and longing for your bed. \r\n\r\n“This is so tiring, I almost forgot I need to have time for myself. Maybe I should just do it tomorrow. I really need to take a rest.”\r\n\r\nTo be continued…\r\n";
         }
-
+        
         public void gameStart()
         {
+
+
             switch (playerChoiceSavepoint)
             {
                 case 1:
@@ -459,13 +469,73 @@ namespace Text_Based_Game_System
 
         }
 
-
         // test button
         private void button1_Click(object sender, EventArgs e)
         {
             gameStart();
         }
 
+        public void btnTestExpiGen_Click(object sender, EventArgs e)
+        {
+            int expGained = 25; // Replace with the actual experience gained
+            playerExp += expGained; // Update the playerExp variable
 
+            // Ensure labelPlayerLevel.Text is a valid integer
+            if (int.TryParse(labelPlayerLevel.Text, out int parsedLevel))
+            {
+                int newLevel = parsedLevel;
+                if (playerExp >= 100)
+                {
+                    newLevel++;
+                    playerExp = 0;
+                }
+
+                // Update the player stats in the database
+                DatabaseHelper databaseHelper = new DatabaseHelper();
+
+                // Get the latest player ID
+                int latestPlayerId = databaseHelper.GetLatestPlayerID();
+
+                // Update the player stats
+                databaseHelper.UpdatePlayerStats(latestPlayerId, newLevel);
+
+                // Update the UI
+                expPB.Value = playerExp;
+                labelExp.Text = playerExp.ToString();
+                labelPlayerLevel.Text = newLevel.ToString();
+            }
+            else
+            {
+                // Handle the case where conversion fails, provide default value or show an error message
+                MessageBox.Show("Error: Unable to parse player level. Default value will be used.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            // Disable the main game form
+            this.Enabled = false;
+
+            // Show the save form
+            if (saveForm == null || saveForm.IsDisposed)
+            {
+                saveForm = new frmSave();
+                saveForm.Owner = this; // Set the owner form
+                saveForm.PlayerID = latestPlayerId; // Pass the latestPlayerId to the saveForm
+                saveForm.FormClosed += saveForm_FormClosed;
+                saveForm.Show();
+            }
+            else
+            {
+                saveForm.BringToFront();
+            }
+        }
+
+        private void saveForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            this.Enabled = true;
+            saveForm = null;
+        }
     }
 }
+

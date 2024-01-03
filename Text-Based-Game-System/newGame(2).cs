@@ -18,7 +18,7 @@ namespace Text_Based_Game_System
         public newGame_2_()
         {
             InitializeComponent();
-          
+
         }
         // pictureBox
 
@@ -72,10 +72,10 @@ namespace Text_Based_Game_System
                 else if (radBtnMale.Checked) { gender = "Male"; }
 
                 Random rnd = new Random();
-               int @int = 0;
+                int @int = 0;
                 for (int j = 0; j < 4; j++)
                 {
-                    @int = rnd.Next(15,35);
+                    @int = rnd.Next(15, 35);
                 }
                 int dex = 0;
                 for (int j = 0; j < 4; j++)
@@ -87,8 +87,8 @@ namespace Text_Based_Game_System
                 {
                     str = rnd.Next(15, 35);
                 }
-               
-                string connectionString = "Data Source=LAPTOP-KJTSSLLV\\SQLEXPRESS;Initial Catalog=DB_TextBasedGameSystem;Integrated Security=True";
+
+                string connectionString = "Data Source=MSI\\SQLEXPRESS01;Initial Catalog=ProjectFinal;Integrated Security=True";
 
                 // Create a connection
                 using (SqlConnection connection = new SqlConnection(connectionString))
@@ -125,6 +125,11 @@ namespace Text_Based_Game_System
                 mainGameScreen.TextBoxValue = textBoxValue;
 
             }
+        }
+
+        private void newGame_2__Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
