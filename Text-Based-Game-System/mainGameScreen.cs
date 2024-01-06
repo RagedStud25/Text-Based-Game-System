@@ -9,15 +9,22 @@ namespace Text_Based_Game_System
 {
     public partial class mainGameScreen : Form
     {
+<<<<<<< HEAD
         private DatabaseHelper databaseHelper;
         private frmSave saveForm;
         private int playerChoiceSavepoint = 1;
+=======
+        //Get from database. THis will serve as the save point on the user.
+
+        int playerChoiceSavepoint = 1;
+>>>>>>> e252d7a947598ff18213709f774552c8aa38269d
 
         public bool btnChoiceOneClicked = false;
         public bool btnChoiceTwoClicked = false;
         public bool btnChoiceThreeClicked = false;
         public bool btnContinueClicked = false;
 
+<<<<<<< HEAD
         public static int playerInt;
         public static int playerDex;
         public static int playerStr;
@@ -39,6 +46,18 @@ namespace Text_Based_Game_System
         public int LatestPlayerIntelligence { get; set; }
         public int LatestPlayerDexterity { get; set; }
         public int LatestPlayerLevel { get; set; }
+=======
+        // player stats
+        public static int playerInt;
+        public static int playerDex;
+        public static int playerStr;
+        int playerHealth;
+        int playerExp;
+        int playerSanity;
+        int playerLevel;
+
+        levelUpBoxUserForm levelUpBoxUser = new levelUpBoxUserForm();
+>>>>>>> e252d7a947598ff18213709f774552c8aa38269d
 
         public mainGameScreen()
         {
@@ -53,6 +72,7 @@ namespace Text_Based_Game_System
 
         }
 
+<<<<<<< HEAD
         private void InitializeLatestPlayerId()
         {
             databaseHelper = new DatabaseHelper();
@@ -61,22 +81,39 @@ namespace Text_Based_Game_System
 
         // Getter and setter method for level up pop up form
         public static int GetLabelSTR
+=======
+        //Getter and setter method for level up pop up form//
+        public static int getlabelSTR
+>>>>>>> e252d7a947598ff18213709f774552c8aa38269d
         {
             get { return playerStr; }
             set { playerStr = value; }
         }
+<<<<<<< HEAD
 
         public static int GetLabelINT
+=======
+        public static int getlabelINT
+>>>>>>> e252d7a947598ff18213709f774552c8aa38269d
         {
             get { return playerInt; }
             set { playerInt = value; }
         }
 
+<<<<<<< HEAD
         public static int GetLabelDEX
+=======
+        public static int getlabelDEX
+>>>>>>> e252d7a947598ff18213709f774552c8aa38269d
         {
             get { return playerDex; }
             set { playerDex = value; }
         }
+<<<<<<< HEAD
+=======
+
+        int latestPlayerId = GetLatestPlayerID();
+>>>>>>> e252d7a947598ff18213709f774552c8aa38269d
 
         private void btnChoiceOne_Click(object sender, EventArgs e)
         {
@@ -125,6 +162,7 @@ namespace Text_Based_Game_System
                 MessageBox.Show($"Error: Unable to parse player level. Default value will be used.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Console.WriteLine($"Error: Unable to parse player level. Input: '{labelPlayerLevel.Text}'");
 
+<<<<<<< HEAD
                 // Set a default value for player level
                 playerLevel = 1;
             }
@@ -133,10 +171,13 @@ namespace Text_Based_Game_System
             // charPicBox.Image = newGame_2_.charPic;
 
             // Set other player stats
+=======
+>>>>>>> e252d7a947598ff18213709f774552c8aa38269d
             playerInt = Convert.ToInt32(labelIint.Text);
             playerDex = Convert.ToInt32(labelDex.Text);
             playerStr = Convert.ToInt32(labelStrength.Text);
 
+<<<<<<< HEAD
             // Additional initialization, if needed
 
             // Now, you can use the parsed values as needed in the rest of your code
@@ -148,6 +189,9 @@ namespace Text_Based_Game_System
 
             // Call the game start method to initiate the story based on player choices
             gameStart();
+=======
+
+>>>>>>> e252d7a947598ff18213709f774552c8aa38269d
         }
         public string TextBoxValue
         {
@@ -433,10 +477,32 @@ namespace Text_Based_Game_System
         {
             labelMainstory.Text = "You came home tired and longing for your bed. \r\n\r\n“This is so tiring, I almost forgot I need to have time for myself. Maybe I should just do it tomorrow. I really need to take a rest.”\r\n\r\nTo be continued…\r\n";
         }
+<<<<<<< HEAD
         
         public void gameStart()
         {
 
+=======
+
+        public void playerLevelUpMechanics() // If user's xp reached 100. This will show the level up stats form.
+        {
+            playerLevel = Convert.ToInt32(labelPlayerLevel.Text);
+
+            if(playerExp == 100)
+            {
+                playerLevel++;
+                labelPlayerLevel.Text = playerLevel.ToString();
+                playerExp = 0;
+                expPB.Value = playerExp;
+                levelUpBoxUser.Visible = true;
+
+            }
+        }
+
+        public void gameStart()
+        {
+            
+>>>>>>> e252d7a947598ff18213709f774552c8aa38269d
 
             switch (playerChoiceSavepoint)
             {
@@ -475,6 +541,7 @@ namespace Text_Based_Game_System
             gameStart();
         }
 
+<<<<<<< HEAD
         public void btnTestExpiGen_Click(object sender, EventArgs e)
         {
             int expGained = 25; // Replace with the actual experience gained
@@ -535,6 +602,17 @@ namespace Text_Based_Game_System
         {
             this.Enabled = true;
             saveForm = null;
+=======
+        private void btnTestExpiGen_Click(object sender, EventArgs e)
+        {
+            playerExp = expPB.Value + 25;
+            expPB.Value = playerExp;
+        }
+
+        private void automaticRefresh(object sender, EventArgs e) //Timer for refreshing the playerlevelupmechanics to detect real-time adjusstments.
+        {
+            playerLevelUpMechanics();
+>>>>>>> e252d7a947598ff18213709f774552c8aa38269d
         }
     }
 }

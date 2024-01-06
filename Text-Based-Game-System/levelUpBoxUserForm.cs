@@ -27,9 +27,15 @@ namespace Text_Based_Game_System
         private void frmloadLevelUp(object sender, EventArgs e)
         {
             mainGameScreen mainGameScreen = new mainGameScreen();
+<<<<<<< HEAD
             labelStr.Text = mainGameScreen.GetLabelSTR.ToString();
             labelDex.Text = mainGameScreen.GetLabelDEX.ToString();
             labelInt.Text = mainGameScreen.GetLabelINT.ToString();
+=======
+            labelStr.Text = mainGameScreen.getlabelSTR.ToString();
+            labelDex.Text = mainGameScreen.getlabelDEX.ToString();
+            labelInt.Text = mainGameScreen.getlabelINT.ToString();
+>>>>>>> e252d7a947598ff18213709f774552c8aa38269d
         }
 
         public void pointsCalculation()

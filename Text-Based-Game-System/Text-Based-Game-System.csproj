@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <Compile Include="DatabaseConnectionHelper.cs" />
     <Compile Include="saveGame.cs">
       <SubType>Form</SubType>
@@ -53,6 +54,8 @@
     <Compile Include="saveGame.Designer.cs">
       <DependentUpon>saveGame.cs</DependentUpon>
     </Compile>
+=======
+>>>>>>> e252d7a947598ff18213709f774552c8aa38269d
     <Compile Include="levelUpBoxUserForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -85,9 +88,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+<<<<<<< HEAD
     <EmbeddedResource Include="saveGame.resx">
       <DependentUpon>saveGame.cs</DependentUpon>
     </EmbeddedResource>
+=======
+>>>>>>> e252d7a947598ff18213709f774552c8aa38269d
     <EmbeddedResource Include="levelUpBoxUserForm.resx">
       <DependentUpon>levelUpBoxUserForm.cs</DependentUpon>
     </EmbeddedResource>
