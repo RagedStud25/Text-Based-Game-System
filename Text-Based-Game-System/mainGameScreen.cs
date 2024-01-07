@@ -33,7 +33,7 @@ namespace Text_Based_Game_System
         int playerSanity;
         int playerLevel;
 
-        levelUpBoxUserForm levelUpBoxUser = new levelUpBoxUserForm();
+        
 
         public mainGameScreen()
         {
@@ -95,7 +95,7 @@ namespace Text_Based_Game_System
 
         static int GetLatestPlayerID()
         {
-            string connectionString = "Data Source=DESKTOP-O47AIOR\\SQLEXPRESS;Initial Catalog=DB_TextBasedGameSystem;Integrated Security=True";
+            string connectionString = "Data Source=LAPTOP-KJTSSLLV\\SQLEXPRESS;Initial Catalog=DB_TextBasedGameSystem;Integrated Security=True";
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
@@ -112,7 +112,7 @@ namespace Text_Based_Game_System
 
         void GetPlayerStats(int playerId) {
 
-            string connectionString = "Data Source=DESKTOP-O47AIOR\\SQLEXPRESS;Initial Catalog=DB_TextBasedGameSystem;Integrated Security=True";
+            string connectionString = "Data Source=LAPTOP-KJTSSLLV\\SQLEXPRESS;Initial Catalog=DB_TextBasedGameSystem;Integrated Security=True";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -168,7 +168,6 @@ namespace Text_Based_Game_System
             playerInt = Convert.ToInt32(labelIint.Text);
             playerDex = Convert.ToInt32(labelDex.Text);
             playerStr = Convert.ToInt32(labelStrength.Text);
-
 
         }
         public string TextBoxValue
@@ -468,6 +467,7 @@ namespace Text_Based_Game_System
                     labelPlayerLevel.Text = playerLevel.ToString();
                     playerExp = 0;
                     expPB.Value = playerExp;
+                    levelUpBoxUserForm levelUpBoxUser = new levelUpBoxUserForm();
                     levelUpBoxUser.Visible = true;
 
                 }
@@ -484,7 +484,7 @@ namespace Text_Based_Game_System
 
             string connetionString;
             SqlConnection con;
-            connetionString = "Data Source=DESKTOP-O47AIOR\\SQLEXPRESS;Initial Catalog=DB_TextBasedGameSystem;Integrated Security=True";
+            connetionString = "Data Source=LAPTOP-KJTSSLLV\\SQLEXPRESS;Initial Catalog=DB_TextBasedGameSystem;Integrated Security=True";
             con = new SqlConnection(connetionString);
 
             con.Open(); // This updates the currency from the program to the sql database. 
@@ -551,7 +551,13 @@ namespace Text_Based_Game_System
         private void automaticRefresh(object sender, EventArgs e) //Timer for refreshing the playerlevelupmechanics to detect real-time adjusstments.
         {
             playerLevelUpMechanics();
+            labelStrength.Text = playerStr.ToString();
+            labelIint.Text = playerInt.ToString();
+            labelDex.Text = playerDex.ToString();
 
+            StrengthPB.Value = playerStr;
+            IntPB.Value = playerInt;
+            DexPB.Value = playerDex;
 
         }
 

@@ -275,5 +275,13 @@ namespace Text_Based_Game_System
             pointsCalculationSTR();
         }
 
+        private void btnConfirm_Click(object sender, EventArgs e)
+        {
+            mainGameScreen.getlabelSTR = Convert.ToInt32(labelStr.Text);
+            mainGameScreen.getlabelINT = Convert.ToInt32(labelInt.Text);
+            mainGameScreen.getlabelDEX = Convert.ToInt32(labelDex.Text);
+
+            Visible = false;
+        }
     }
 }

@@ -88,7 +88,7 @@ namespace Text_Based_Game_System
                     str = rnd.Next(15, 35);
                 }
                
-                string connectionString = "Data Source=DESKTOP-O47AIOR\\SQLEXPRESS;Initial Catalog=DB_TextBasedGameSystem;Integrated Security=True";
+                string connectionString = "Data Source=LAPTOP-KJTSSLLV\\SQLEXPRESS;Initial Catalog=DB_TextBasedGameSystem;Integrated Security=True";
 
                 // Create a connection
                 using (SqlConnection connection = new SqlConnection(connectionString))
