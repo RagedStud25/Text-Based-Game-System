@@ -18,10 +18,9 @@ namespace Text_Based_Game_System
             InitializeComponent();
         }
 
-
         public void addPlayerName() {
             SqlConnection con;
-            string connectionString = "Data Source=LAPTOP-KJTSSLLV\\SQLEXPRESS;Initial Catalog=DB_TextBasedGameSystem;Integrated Security=True";
+            string connectionString = "Data Source=DESKTOP-O47AIOR\\SQLEXPRESS;Initial Catalog=DB_TextBasedGameSystem;Integrated Security=True";
 
             con = new SqlConnection(connectionString);
 
@@ -40,7 +39,7 @@ namespace Text_Based_Game_System
         public void getPlayerName()
         {
             SqlConnection con;
-            string connectionString = "Data Source=LAPTOP-KJTSSLLV\\SQLEXPRESS;Initial Catalog=DB_TextBasedGameSystem;Integrated Security=True";
+            string connectionString = "Data Source=DESKTOP-O47AIOR\\SQLEXPRESS;Initial Catalog=DB_TextBasedGameSystem;Integrated Security=True";
 
             con = new SqlConnection(connectionString);
 
@@ -51,7 +50,9 @@ namespace Text_Based_Game_System
             while (reader.Read())
             {
                 labelPlayerID.Text = reader.GetValue(1).ToString();
+                labelPlayerGender.Text = reader.GetValue(2).ToString();
             }
+
             con.Close();
         }
 
@@ -59,7 +60,7 @@ namespace Text_Based_Game_System
         public void displayPlayerStats()
         {
             SqlConnection con;
-            string connectionString = "Data Source=LAPTOP-KJTSSLLV\\SQLEXPRESS;Initial Catalog=DB_TextBasedGameSystem;Integrated Security=True";
+            string connectionString = "Data Source=DESKTOP-O47AIOR\\SQLEXPRESS;Initial Catalog=DB_TextBasedGameSystem;Integrated Security=True";
 
             con = new SqlConnection(connectionString);
 
@@ -104,11 +105,12 @@ namespace Text_Based_Game_System
             displayPlayerStats();
         }
 
+
+
         private void btnConfirm_Click(object sender, EventArgs e)
         {
             MainGameScreenLoad.getPlayerID = Convert.ToInt32(comboPlayername.Text);
             MainGameScreenLoad mainGameScreenLoad = new MainGameScreenLoad();
-
             string textBoxValue = labelPlayerID.Text;
             mainGameScreenLoad.TextBoxValue = textBoxValue;
             this.Visible = false;
@@ -116,5 +118,6 @@ namespace Text_Based_Game_System
 
 
         }
+
     }
 }

@@ -41,7 +41,6 @@ namespace Text_Based_Game_System
             gameStart();
         }
 
-      
 
         //Getter and setter method for level up pop up form//
         public static int getlabelSTR
@@ -96,7 +95,7 @@ namespace Text_Based_Game_System
 
         static int GetLatestPlayerID()
         {
-            string connectionString = "Data Source=LAPTOP-KJTSSLLV\\SQLEXPRESS;Initial Catalog=DB_TextBasedGameSystem;Integrated Security=True";
+            string connectionString = "Data Source=DESKTOP-O47AIOR\\SQLEXPRESS;Initial Catalog=DB_TextBasedGameSystem;Integrated Security=True";
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
@@ -113,7 +112,7 @@ namespace Text_Based_Game_System
 
         void GetPlayerStats(int playerId) {
 
-            string connectionString = "Data Source=LAPTOP-KJTSSLLV\\SQLEXPRESS;Initial Catalog=DB_TextBasedGameSystem;Integrated Security=True";
+            string connectionString = "Data Source=DESKTOP-O47AIOR\\SQLEXPRESS;Initial Catalog=DB_TextBasedGameSystem;Integrated Security=True";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -142,7 +141,6 @@ namespace Text_Based_Game_System
                             IntPB.Value = playerIntelligence;
                             DexPB.Value = playerDexterity;
                             
-
                             labelWherePlayerID.Text = playerId.ToString();
 
                             labelIint.Text = playerIntelligence.ToString();
@@ -487,7 +485,7 @@ namespace Text_Based_Game_System
 
             string connetionString;
             SqlConnection con;
-            connetionString = "Data Source=LAPTOP-KJTSSLLV\\SQLEXPRESS;Initial Catalog=DB_TextBasedGameSystem;Integrated Security=True";
+            connetionString = "Data Source=DESKTOP-O47AIOR\\SQLEXPRESS;Initial Catalog=DB_TextBasedGameSystem;Integrated Security=True";
             con = new SqlConnection(connetionString);
 
             con.Open(); // This updates the currency from the program to the sql database. 

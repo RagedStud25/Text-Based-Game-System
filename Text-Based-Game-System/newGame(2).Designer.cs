@@ -44,7 +44,7 @@
             // 
             this.txtChar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtChar.Location = new System.Drawing.Point(58, 275);
-            this.txtChar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtChar.Margin = new System.Windows.Forms.Padding(2);
             this.txtChar.Multiline = true;
             this.txtChar.Name = "txtChar";
             this.txtChar.Size = new System.Drawing.Size(270, 43);
@@ -54,7 +54,7 @@
             // 
             this.btnBeginStory.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBeginStory.Location = new System.Drawing.Point(113, 336);
-            this.btnBeginStory.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnBeginStory.Margin = new System.Windows.Forms.Padding(2);
             this.btnBeginStory.Name = "btnBeginStory";
             this.btnBeginStory.Size = new System.Drawing.Size(147, 39);
             this.btnBeginStory.TabIndex = 3;
@@ -77,7 +77,7 @@
             // 
             this.picboxChar2.Image = global::Text_Based_Game_System.Properties.Resources.female1;
             this.picboxChar2.Location = new System.Drawing.Point(212, 66);
-            this.picboxChar2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.picboxChar2.Margin = new System.Windows.Forms.Padding(2);
             this.picboxChar2.Name = "picboxChar2";
             this.picboxChar2.Size = new System.Drawing.Size(150, 162);
             this.picboxChar2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -88,7 +88,7 @@
             // 
             this.picboxChar1.Image = global::Text_Based_Game_System.Properties.Resources.male1;
             this.picboxChar1.Location = new System.Drawing.Point(30, 66);
-            this.picboxChar1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.picboxChar1.Margin = new System.Windows.Forms.Padding(2);
             this.picboxChar1.Name = "picboxChar1";
             this.picboxChar1.Size = new System.Drawing.Size(150, 162);
             this.picboxChar1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -103,7 +103,7 @@
             this.btnBack1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBack1.Font = new System.Drawing.Font("Showcard Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBack1.Location = new System.Drawing.Point(9, 10);
-            this.btnBack1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnBack1.Margin = new System.Windows.Forms.Padding(2);
             this.btnBack1.Name = "btnBack1";
             this.btnBack1.Size = new System.Drawing.Size(49, 39);
             this.btnBack1.TabIndex = 30;
@@ -116,7 +116,7 @@
             this.radBtnMale.AutoSize = true;
             this.radBtnMale.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radBtnMale.Location = new System.Drawing.Point(78, 240);
-            this.radBtnMale.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.radBtnMale.Margin = new System.Windows.Forms.Padding(2);
             this.radBtnMale.Name = "radBtnMale";
             this.radBtnMale.Size = new System.Drawing.Size(56, 21);
             this.radBtnMale.TabIndex = 33;
@@ -130,7 +130,7 @@
             this.radBtnFemale.AutoSize = true;
             this.radBtnFemale.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radBtnFemale.Location = new System.Drawing.Point(253, 240);
-            this.radBtnFemale.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.radBtnFemale.Margin = new System.Windows.Forms.Padding(2);
             this.radBtnFemale.Name = "radBtnFemale";
             this.radBtnFemale.Size = new System.Drawing.Size(72, 21);
             this.radBtnFemale.TabIndex = 34;
@@ -152,7 +152,7 @@
             this.Controls.Add(this.txtChar);
             this.Controls.Add(this.picboxChar2);
             this.Controls.Add(this.picboxChar1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "newGame_2_";
             this.Text = "newGame_2_";
             ((System.ComponentModel.ISupportInitialize)(this.picboxChar2)).EndInit();

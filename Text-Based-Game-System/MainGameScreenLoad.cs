@@ -69,7 +69,6 @@ namespace Text_Based_Game_System
                 // Assuming labelForm2 is the name of your Label control
                 PlayerNameLBL.Text = value;
             }
-
         }
 
         private void btnChoiceOne_Click(object sender, EventArgs e)
@@ -111,7 +110,7 @@ namespace Text_Based_Game_System
         void GetPlayerStats(int playerId)
         {
 
-            string connectionString = "Data Source=LAPTOP-KJTSSLLV\\SQLEXPRESS;Initial Catalog=DB_TextBasedGameSystem;Integrated Security=True";
+            string connectionString = "Data Source=DESKTOP-O47AIOR\\SQLEXPRESS;Initial Catalog=DB_TextBasedGameSystem;Integrated Security=True";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -155,6 +154,7 @@ namespace Text_Based_Game_System
                             labelExp.Text = playerExp.ToString();
 
                             Console.WriteLine($"Player Stats: Health={playerHealth}, Sanity={playerSanity}, Strength={playerStrength}, Intelligence={playerIntelligence}, Dexterity={playerDexterity}");
+                        
                         }
                     }
                 }
@@ -166,8 +166,9 @@ namespace Text_Based_Game_System
             GetPlayerStats(playerID);
             //  int playerId = 1; // Replace with the actual player ID
 
-            // transfer picBox from newGame to mainGame
-            charPicBox.Image = newGame_2_.charPic;
+            //transfer picBox from newGame to mainGame
+            //charPicBox.Image = newGame_2_.charPic;
+
 
             playerInt = Convert.ToInt32(labelIint.Text);
             playerDex = Convert.ToInt32(labelDex.Text);
@@ -176,7 +177,6 @@ namespace Text_Based_Game_System
             labelExp.Text = expPB.Value.ToString();
 
             gameStart();
-            
         }
 
 
