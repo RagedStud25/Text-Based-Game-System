@@ -65,6 +65,8 @@
             this.label11 = new System.Windows.Forms.Label();
             this.btnTestExpiGen = new System.Windows.Forms.Button();
             this.timerRefresh = new System.Windows.Forms.Timer(this.components);
+            this.labelWherePlayerID = new System.Windows.Forms.Label();
+            this.btnSave = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.charPicBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).BeginInit();
             this.SuspendLayout();
@@ -168,7 +170,7 @@
             this.labelPlayerLevel.Name = "labelPlayerLevel";
             this.labelPlayerLevel.Size = new System.Drawing.Size(23, 25);
             this.labelPlayerLevel.TabIndex = 30;
-            this.labelPlayerLevel.Text = "3";
+            this.labelPlayerLevel.Text = "1";
             // 
             // charPicBox
             // 
@@ -185,7 +187,7 @@
             this.HealthPB.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.HealthPB.ForeColor = System.Drawing.Color.LimeGreen;
             this.HealthPB.Location = new System.Drawing.Point(319, 68);
-            this.HealthPB.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.HealthPB.Margin = new System.Windows.Forms.Padding(4);
             this.HealthPB.Name = "HealthPB";
             this.HealthPB.Size = new System.Drawing.Size(189, 28);
             this.HealthPB.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
@@ -196,7 +198,7 @@
             // 
             this.SanityPB.ForeColor = System.Drawing.Color.LimeGreen;
             this.SanityPB.Location = new System.Drawing.Point(317, 103);
-            this.SanityPB.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.SanityPB.Margin = new System.Windows.Forms.Padding(4);
             this.SanityPB.Name = "SanityPB";
             this.SanityPB.Size = new System.Drawing.Size(191, 28);
             this.SanityPB.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
@@ -207,7 +209,7 @@
             // 
             this.IntPB.ForeColor = System.Drawing.Color.LimeGreen;
             this.IntPB.Location = new System.Drawing.Point(788, 68);
-            this.IntPB.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.IntPB.Margin = new System.Windows.Forms.Padding(4);
             this.IntPB.Name = "IntPB";
             this.IntPB.Size = new System.Drawing.Size(191, 28);
             this.IntPB.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
@@ -218,7 +220,7 @@
             // 
             this.DexPB.ForeColor = System.Drawing.Color.LimeGreen;
             this.DexPB.Location = new System.Drawing.Point(788, 103);
-            this.DexPB.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.DexPB.Margin = new System.Windows.Forms.Padding(4);
             this.DexPB.Name = "DexPB";
             this.DexPB.Size = new System.Drawing.Size(191, 28);
             this.DexPB.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
@@ -229,7 +231,7 @@
             // 
             this.StrengthPB.ForeColor = System.Drawing.Color.LimeGreen;
             this.StrengthPB.Location = new System.Drawing.Point(788, 139);
-            this.StrengthPB.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.StrengthPB.Margin = new System.Windows.Forms.Padding(4);
             this.StrengthPB.Name = "StrengthPB";
             this.StrengthPB.Size = new System.Drawing.Size(191, 28);
             this.StrengthPB.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
@@ -250,7 +252,7 @@
             // 
             this.expPB.ForeColor = System.Drawing.Color.LimeGreen;
             this.expPB.Location = new System.Drawing.Point(317, 139);
-            this.expPB.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.expPB.Margin = new System.Windows.Forms.Padding(4);
             this.expPB.Name = "expPB";
             this.expPB.Size = new System.Drawing.Size(191, 28);
             this.expPB.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
@@ -417,11 +419,34 @@
             this.timerRefresh.Interval = 1000;
             this.timerRefresh.Tick += new System.EventHandler(this.automaticRefresh);
             // 
+            // labelWherePlayerID
+            // 
+            this.labelWherePlayerID.AutoSize = true;
+            this.labelWherePlayerID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelWherePlayerID.Location = new System.Drawing.Point(549, 26);
+            this.labelWherePlayerID.Name = "labelWherePlayerID";
+            this.labelWherePlayerID.Size = new System.Drawing.Size(139, 25);
+            this.labelWherePlayerID.TabIndex = 52;
+            this.labelWherePlayerID.Text = "LatestPlayerID";
+            // 
+            // btnSave
+            // 
+            this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSave.Location = new System.Drawing.Point(993, 197);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(110, 48);
+            this.btnSave.TabIndex = 53;
+            this.btnSave.Text = "Save";
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
             // mainGameScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1117, 933);
+            this.Controls.Add(this.btnSave);
+            this.Controls.Add(this.labelWherePlayerID);
             this.Controls.Add(this.btnTestExpiGen);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.labelExp);
@@ -502,5 +527,7 @@
         private System.Windows.Forms.Label labelHealth;
         private System.Windows.Forms.Button btnTestExpiGen;
         private System.Windows.Forms.Timer timerRefresh;
+        private System.Windows.Forms.Label labelWherePlayerID;
+        private System.Windows.Forms.Button btnSave;
     }
 }
