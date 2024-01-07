@@ -52,6 +52,12 @@
     <Compile Include="levelUpBoxUserForm.Designer.cs">
       <DependentUpon>levelUpBoxUserForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="levelUpBoxUserFormLoad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="levelUpBoxUserFormLoad.Designer.cs">
+      <DependentUpon>levelUpBoxUserFormLoad.cs</DependentUpon>
+    </Compile>
     <Compile Include="loadGame%282%29.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -63,6 +69,12 @@
     </Compile>
     <Compile Include="mainGameScreen.Designer.cs">
       <DependentUpon>mainGameScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainGameScreenLoad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainGameScreenLoad.Designer.cs">
+      <DependentUpon>MainGameScreenLoad.cs</DependentUpon>
     </Compile>
     <Compile Include="newGame%282%29.cs">
       <SubType>Form</SubType>
@@ -81,11 +93,17 @@
     <EmbeddedResource Include="levelUpBoxUserForm.resx">
       <DependentUpon>levelUpBoxUserForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="levelUpBoxUserFormLoad.resx">
+      <DependentUpon>levelUpBoxUserFormLoad.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="loadGame%282%29.resx">
       <DependentUpon>loadGame%282%29.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="mainGameScreen.resx">
       <DependentUpon>mainGameScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainGameScreenLoad.resx">
+      <DependentUpon>MainGameScreenLoad.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="newGame%282%29.resx">
       <DependentUpon>newGame%282%29.cs</DependentUpon>

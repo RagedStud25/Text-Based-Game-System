@@ -1,23 +1,20 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
-using System.Net.NetworkInformation;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Text_Based_Game_System
 {
-    public partial class mainGameScreen : Form
+    public partial class MainGameScreenLoad : Form
     {
-        //Get from database. THis will serve as the save point on the user.
-
-        int playerChoiceSavepoint = 1;
+        public static int playerID;
+        int playerChoiceSavepoint;
 
         public bool btnChoiceOneClicked = false;
         public bool btnChoiceTwoClicked = false;
@@ -33,17 +30,14 @@ namespace Text_Based_Game_System
         int playerSanity;
         int playerLevel;
 
-        
-
-        public mainGameScreen()
+        public MainGameScreenLoad()
         {
+            
             InitializeComponent();
-            gameStart();
+
+            //gameStart();
         }
 
-      
-
-        //Getter and setter method for level up pop up form//
         public static int getlabelSTR
         {
             get { return playerStr; }
@@ -61,7 +55,22 @@ namespace Text_Based_Game_System
             set { playerDex = value; }
         }
 
-        int latestPlayerId = GetLatestPlayerID();
+        public static int getPlayerID
+        {
+            get { return playerID; }
+            set { playerID = value; }
+        }
+
+       
+        public string TextBoxValue
+        {
+            set
+            {
+                // Assuming labelForm2 is the name of your Label control
+                PlayerNameLBL.Text = value;
+            }
+
+        }
 
         private void btnChoiceOne_Click(object sender, EventArgs e)
         {
@@ -87,6 +96,11 @@ namespace Text_Based_Game_System
             gameStart();
         }
 
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            gameSave();
+        }
+
         private void labelHome_Click(object sender, EventArgs e)
         {
             startScreen startScreen = new startScreen();
@@ -94,24 +108,8 @@ namespace Text_Based_Game_System
             this.Visible = false;
         }
 
-        static int GetLatestPlayerID()
+        void GetPlayerStats(int playerId)
         {
-            string connectionString = "Data Source=LAPTOP-KJTSSLLV\\SQLEXPRESS;Initial Catalog=DB_TextBasedGameSystem;Integrated Security=True";
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                connection.Open();
-
-                using (SqlCommand command = new SqlCommand("GetLatestPlayerID", connection))
-                {
-                    command.CommandType = CommandType.StoredProcedure;
-
-                    // Execute the command and retrieve the latest player ID
-                    return Convert.ToInt32(command.ExecuteScalar());
-                }
-            }
-        }
-
-        void GetPlayerStats(int playerId) {
 
             string connectionString = "Data Source=LAPTOP-KJTSSLLV\\SQLEXPRESS;Initial Catalog=DB_TextBasedGameSystem;Integrated Security=True";
 
@@ -134,17 +132,20 @@ namespace Text_Based_Game_System
                             int playerStrength = Convert.ToInt32(reader["PlayerStrength"]);
                             int playerIntelligence = Convert.ToInt32(reader["PlayerIntelligence"]);
                             int playerDexterity = Convert.ToInt32(reader["PlayerDexterity"]);
-                            
+                            int playerExpi = Convert.ToInt32(reader["PlayerExpi"]);
+                            playerChoiceSavepoint = Convert.ToInt32(reader["PlayerSavepoint"]);
 
                             HealthPB.Value = playerHealth;
                             SanityPB.Value = playerSanity;
                             StrengthPB.Value = playerStrength;
                             IntPB.Value = playerIntelligence;
                             DexPB.Value = playerDexterity;
-                            
+                            expPB.Value = playerExpi;
+
 
                             labelWherePlayerID.Text = playerId.ToString();
 
+                            labelExp.Text = playerExpi.ToString();
                             labelIint.Text = playerIntelligence.ToString();
                             labelDex.Text = playerDexterity.ToString();
                             labelStrength.Text = playerStrength.ToString();
@@ -160,10 +161,10 @@ namespace Text_Based_Game_System
             }
         }
 
-        private void mainGameScreen_Load(object sender, EventArgs e)
+        private void frmMainGameScreenLoad(object sender, EventArgs e)
         {
+            GetPlayerStats(playerID);
             //  int playerId = 1; // Replace with the actual player ID
-            GetPlayerStats(latestPlayerId);
 
             // transfer picBox from newGame to mainGame
             charPicBox.Image = newGame_2_.charPic;
@@ -172,16 +173,13 @@ namespace Text_Based_Game_System
             playerDex = Convert.ToInt32(labelDex.Text);
             playerStr = Convert.ToInt32(labelStrength.Text);
 
-        }
-        public string TextBoxValue
-        {
-            set
-            {
-                // Assuming labelForm2 is the name of your Label control
-                PlayerNameLBL.Text = value;
-            }
+            labelExp.Text = expPB.Value.ToString();
 
+            gameStart();
+            
         }
+
+
 
         // main story 1
         public void mainStory_1()
@@ -194,76 +192,59 @@ namespace Text_Based_Game_System
             playerChoiceSavepoint++;
         }
 
+
         // filler 1
         public void fillerStory_1()
         {
             labelMainstory.Text = "While you're on your way to work, you saw an old woman struggling on her way home as the field that she's walking on has a lot of stairs. \r\n\r\na. help her and be late\r\nb. ask someone near you to help the old woman (50% success)\r\nc. pretend that you didn't see her and walk away\r\n\n";
 
-                if (btnChoiceOneClicked == true)
+            if (btnChoiceOneClicked == true)
+            {
+                labelMainstory.Text = ".. so you helped the old woman to reach her home and sacrificed minutes of your time. \r\n\r\n\"Thank you for helping me. Please take this bag of fruits as this is the only way I can give my thanks.\" \r\n\r\n\"Ohh.. I appreciate it grandma but I'm fine, thank you!\"\r\n\r\nYou said goodbye to the old woman and still had 5 minutes left, so you did your best to run as fast as you could.\r\n \n\nClick Continue...";
+                btnChoiceOneClicked = false;
+
+                playerExp = expPB.Value + 25;
+                expPB.Value = playerExp;
+                labelExp.Text = playerExp.ToString();
+                playerChoiceSavepoint++;
+
+            }
+            else if (btnChoiceTwoClicked == true) //CHOICE B
+            {
+                // base chance of success
+                int baseChance = 2;
+
+                // player stats
+                int IntStats = IntPB.Value;
+
+                // generate number from 1 to 100
+                Random random = new Random();
+                int choice = random.Next(1, 100);
+
+                // Calculate the chance of success based on player stats
+                int chanceOfSucess = baseChance + IntStats;
+
+                if (choice <= chanceOfSucess)
                 {
-                    labelMainstory.Text = ".. so you helped the old woman to reach her home and sacrificed minutes of your time. \r\n\r\n\"Thank you for helping me. Please take this bag of fruits as this is the only way I can give my thanks.\" \r\n\r\n\"Ohh.. I appreciate it grandma but I'm fine, thank you!\"\r\n\r\nYou said goodbye to the old woman and still had 5 minutes left, so you did your best to run as fast as you could.\r\n \n\nClick Continue...";
-                    btnChoiceOneClicked = false;
+                    labelMainstory.Text = "\nSuccess! \n\n.. you saw an unknown person passing by and you approached him. \r\n\r\n\"Excuse me--\" you asked..\r\n\r\n\"Who are you? What do you need?\" said the unknown person, giving you confused looks. \r\n\r\n\"May I ask if you can help that woman?\" you pointed at the old woman.\r\n\r\n\"Of course. Go on with your errands now.\"\r\n\r\nit made sense that the man doesn't want to help the woman, so you just did it yourself. \r\nThe woman kindly helped the old woman, and you went on your way to the interview room.\r\n \nClick Continue";
+                    btnChoiceTwoClicked = false;
 
                     playerExp = expPB.Value + 25;
                     expPB.Value = playerExp;
                     labelExp.Text = playerExp.ToString();
+
                     playerChoiceSavepoint++;
 
-            }
-                else if (btnChoiceTwoClicked == true) //CHOICE B
-                {
-                    // base chance of success
-                    int baseChance = 2;
-
-                    // player stats
-                    int IntStats = IntPB.Value;
-
-                    // generate number from 1 to 100
-                    Random random = new Random();
-                    int choice = random.Next(1, 100);
-
-                    // Calculate the chance of success based on player stats
-                    int chanceOfSucess = baseChance + IntStats;
-
-                    if (choice <= chanceOfSucess)
-                    {
-                        labelMainstory.Text = "\nSuccess! \n\n.. you saw an unknown person passing by and you approached him. \r\n\r\n\"Excuse me--\" you asked..\r\n\r\n\"Who are you? What do you need?\" said the unknown person, giving you confused looks. \r\n\r\n\"May I ask if you can help that woman?\" you pointed at the old woman.\r\n\r\n\"Of course. Go on with your errands now.\"\r\n\r\nit made sense that the man doesn't want to help the woman, so you just did it yourself. \r\nThe woman kindly helped the old woman, and you went on your way to the interview room.\r\n \nClick Continue";
-                        btnChoiceTwoClicked = false;
-
-                        playerExp = expPB.Value + 25;
-                        expPB.Value = playerExp;
-                        labelExp.Text = playerExp.ToString();
-
-                        playerChoiceSavepoint++;
-
-                    }
-                    else
-                    {
-                        labelMainstory.Text = "\nFailed! \n\n.. you saw an unknown person passing by and you approached him. \r\n\r\n\"Excuse me--\" you asked..\r\n\r\n\"Who are you? What do you need?\" said the unknown person, giving you confused looks. \r\n\r\n\"uhm.. may I ask if you can help that woman?\" you pointed at the old woman.\r\n\r\n\"And why do I have to help her? why don't you do it yourself?\"\r\n\r\nit made sense that the man doesn't want to help the woman, so you just did it yourself. (- 25 sanity) \n\nClick Continue";
-                        btnChoiceTwoClicked = false;
-
-                        playerSanity = SanityPB.Value - 25;
-                        SanityPB.Value = playerSanity;
-
-                        playerExp = expPB.Value + 10;
-                        expPB.Value = playerExp;
-
-                        labelSanity.Text = playerSanity.ToString();
-                        labelExp.Text = playerExp.ToString();
-
-                        playerChoiceSavepoint++;
-                    }
-
                 }
-                else if (btnChoiceThreeClicked == true) //CHOICE C
+                else
                 {
-                    labelMainstory.Text = "you pretended that you didn't see the old woman and slowly you felt guilty on not helping her. although it saved your reputation in the company for being punctual. (- 1 sanity) \n\nClick Continue...";
-                    btnChoiceThreeClicked = false;
+                    labelMainstory.Text = "\nFailed! \n\n.. you saw an unknown person passing by and you approached him. \r\n\r\n\"Excuse me--\" you asked..\r\n\r\n\"Who are you? What do you need?\" said the unknown person, giving you confused looks. \r\n\r\n\"uhm.. may I ask if you can help that woman?\" you pointed at the old woman.\r\n\r\n\"And why do I have to help her? why don't you do it yourself?\"\r\n\r\nit made sense that the man doesn't want to help the woman, so you just did it yourself. (- 25 sanity) \n\nClick Continue";
+                    btnChoiceTwoClicked = false;
 
                     playerSanity = SanityPB.Value - 25;
                     SanityPB.Value = playerSanity;
 
-                    playerExp = expPB.Value + 25;
+                    playerExp = expPB.Value + 10;
                     expPB.Value = playerExp;
 
                     labelSanity.Text = playerSanity.ToString();
@@ -271,7 +252,25 @@ namespace Text_Based_Game_System
 
                     playerChoiceSavepoint++;
                 }
+
             }
+            else if (btnChoiceThreeClicked == true) //CHOICE C
+            {
+                labelMainstory.Text = "you pretended that you didn't see the old woman and slowly you felt guilty on not helping her. although it saved your reputation in the company for being punctual. (- 1 sanity) \n\nClick Continue...";
+                btnChoiceThreeClicked = false;
+
+                playerSanity = SanityPB.Value - 25;
+                SanityPB.Value = playerSanity;
+
+                playerExp = expPB.Value + 25;
+                expPB.Value = playerExp;
+
+                labelSanity.Text = playerSanity.ToString();
+                labelExp.Text = playerExp.ToString();
+
+                playerChoiceSavepoint++;
+            }
+        }
 
         // main story 2
         public void mainStory_2()
@@ -322,6 +321,7 @@ namespace Text_Based_Game_System
                 playerChoiceSavepoint++;
             }
         }
+
 
         // main story 3
         public void mainStory_3()
@@ -400,6 +400,7 @@ namespace Text_Based_Game_System
             }
         }
 
+
         // filler 2
         public void fillerStory_2()
         {
@@ -452,6 +453,7 @@ namespace Text_Based_Game_System
             }
         }
 
+
         // main story 4
         public void mainStory_4()
         {
@@ -470,12 +472,13 @@ namespace Text_Based_Game_System
                     labelPlayerLevel.Text = playerLevel.ToString();
                     playerExp = 0;
                     expPB.Value = playerExp;
-                    levelUpBoxUserForm levelUpBoxUser = new levelUpBoxUserForm();
+                    levelUpBoxUserFormLoad levelUpBoxUser = new levelUpBoxUserFormLoad();
                     levelUpBoxUser.Visible = true;
 
                 }
             }
-            catch (Exception ex) { 
+            catch (Exception ex)
+            {
                 playerExp = 0;
                 playerLevel++;
             }
@@ -530,7 +533,8 @@ namespace Text_Based_Game_System
 
 
                 }
-            }catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 playerExp = 0;
                 playerLevel++;
@@ -538,22 +542,11 @@ namespace Text_Based_Game_System
 
         }
 
-
-        // test button
-        private void button1_Click(object sender, EventArgs e)
-        {
-            gameStart();
-        }
-
-        private void btnTestExpiGen_Click(object sender, EventArgs e)
-        {
-            playerExp = expPB.Value + 25;
-            expPB.Value = playerExp;
-        }
-
-        private void automaticRefresh(object sender, EventArgs e) //Timer for refreshing the playerlevelupmechanics to detect real-time adjusstments.
+        private void automaticRefresher(object sender, EventArgs e)
         {
             playerLevelUpMechanics();
+            
+
             labelStrength.Text = playerStr.ToString();
             labelIint.Text = playerInt.ToString();
             labelDex.Text = playerDex.ToString();
@@ -561,12 +554,6 @@ namespace Text_Based_Game_System
             StrengthPB.Value = playerStr;
             IntPB.Value = playerInt;
             DexPB.Value = playerDex;
-
-        }
-
-        private void btnSave_Click(object sender, EventArgs e)
-        {
-            gameSave();
         }
     }
 }

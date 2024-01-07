@@ -109,6 +109,9 @@ namespace Text_Based_Game_System
                         command.Parameters.Add(new SqlParameter("@playerDexterityParam", SqlDbType.Int) { Value = dex });
                         command.Parameters.Add(new SqlParameter("@playerLevelParam", SqlDbType.Int) { Value = 1 });
                         command.Parameters.Add(new SqlParameter("@progressDataParam", SqlDbType.NVarChar, -1) { Value = "Level 1 completed" });
+                        command.Parameters.Add(new SqlParameter("@playerExpiParam", SqlDbType.Int) { Value = 0 });
+                        command.Parameters.Add(new SqlParameter("@playerSavepointParam", SqlDbType.Int) { Value = 1 });
+                        
 
                         // Execute the command
                         command.ExecuteNonQuery();
