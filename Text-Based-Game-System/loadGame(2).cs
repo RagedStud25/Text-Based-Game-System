@@ -20,7 +20,7 @@ namespace Text_Based_Game_System
 
         public void addPlayerName() {
             SqlConnection con;
-            string connectionString = "Data Source=DESKTOP-O47AIOR\\SQLEXPRESS;Initial Catalog=DB_TextBasedGameSystem;Integrated Security=True";
+            string connectionString = "Data Source=LAPTOP-KJTSSLLV\\SQLEXPRESS;Initial Catalog=DB_TextBasedGameSystem;Integrated Security=True";
 
             con = new SqlConnection(connectionString);
 
@@ -39,7 +39,7 @@ namespace Text_Based_Game_System
         public void getPlayerName()
         {
             SqlConnection con;
-            string connectionString = "Data Source=DESKTOP-O47AIOR\\SQLEXPRESS;Initial Catalog=DB_TextBasedGameSystem;Integrated Security=True";
+            string connectionString = "Data Source=LAPTOP-KJTSSLLV\\SQLEXPRESS;Initial Catalog=DB_TextBasedGameSystem;Integrated Security=True";
 
             con = new SqlConnection(connectionString);
 
@@ -60,7 +60,7 @@ namespace Text_Based_Game_System
         public void displayPlayerStats()
         {
             SqlConnection con;
-            string connectionString = "Data Source=DESKTOP-O47AIOR\\SQLEXPRESS;Initial Catalog=DB_TextBasedGameSystem;Integrated Security=True";
+            string connectionString = "Data Source=LAPTOP-KJTSSLLV\\SQLEXPRESS;Initial Catalog=DB_TextBasedGameSystem;Integrated Security=True";
 
             con = new SqlConnection(connectionString);
 

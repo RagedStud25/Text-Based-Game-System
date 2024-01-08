@@ -110,7 +110,7 @@ namespace Text_Based_Game_System
         void GetPlayerStats(int playerId)
         {
 
-            string connectionString = "Data Source=DESKTOP-O47AIOR\\SQLEXPRESS;Initial Catalog=DB_TextBasedGameSystem;Integrated Security=True";
+            string connectionString = "Data Source=LAPTOP-KJTSSLLV\\SQLEXPRESS;Initial Catalog=DB_TextBasedGameSystem;Integrated Security=True";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -132,7 +132,10 @@ namespace Text_Based_Game_System
                             int playerIntelligence = Convert.ToInt32(reader["PlayerIntelligence"]);
                             int playerDexterity = Convert.ToInt32(reader["PlayerDexterity"]);
                             int playerExpi = Convert.ToInt32(reader["PlayerExpi"]);
+                            int playerLevel = Convert.ToInt32(reader["Playerlevel"]);
                             playerChoiceSavepoint = Convert.ToInt32(reader["PlayerSavepoint"]);
+
+                            
 
                             HealthPB.Value = playerHealth;
                             SanityPB.Value = playerSanity;
@@ -140,6 +143,7 @@ namespace Text_Based_Game_System
                             IntPB.Value = playerIntelligence;
                             DexPB.Value = playerDexterity;
                             expPB.Value = playerExpi;
+                            labelPlayerLevel.Text = playerLevel.ToString();
 
 
                             labelWherePlayerID.Text = playerId.ToString();
