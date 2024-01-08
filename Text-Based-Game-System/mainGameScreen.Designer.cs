@@ -68,6 +68,8 @@
             this.labelWherePlayerID = new System.Windows.Forms.Label();
             this.btnSave = new System.Windows.Forms.Button();
             this.labelID = new System.Windows.Forms.Label();
+            this.btnTestMinusSanity = new System.Windows.Forms.Button();
+            this.btnKIllsme = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.charPicBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).BeginInit();
             this.SuspendLayout();
@@ -325,10 +327,10 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(1012, 532);
+            this.button1.Location = new System.Drawing.Point(1016, 397);
             this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 71);
+            this.button1.Size = new System.Drawing.Size(71, 72);
             this.button1.TabIndex = 42;
             this.button1.Text = "btnTestRandom";
             this.button1.UseVisualStyleBackColor = true;
@@ -453,12 +455,36 @@
             this.labelID.TabIndex = 54;
             this.labelID.Text = "ID:";
             // 
+            // btnTestMinusSanity
+            // 
+            this.btnTestMinusSanity.Location = new System.Drawing.Point(1016, 606);
+            this.btnTestMinusSanity.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnTestMinusSanity.Name = "btnTestMinusSanity";
+            this.btnTestMinusSanity.Size = new System.Drawing.Size(71, 70);
+            this.btnTestMinusSanity.TabIndex = 93;
+            this.btnTestMinusSanity.Text = "- 25 Sanity";
+            this.btnTestMinusSanity.UseVisualStyleBackColor = true;
+            this.btnTestMinusSanity.Click += new System.EventHandler(this.btnTestMinusSanity_Click);
+            // 
+            // btnKIllsme
+            // 
+            this.btnKIllsme.Location = new System.Drawing.Point(1016, 531);
+            this.btnKIllsme.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnKIllsme.Name = "btnKIllsme";
+            this.btnKIllsme.Size = new System.Drawing.Size(71, 71);
+            this.btnKIllsme.TabIndex = 92;
+            this.btnKIllsme.Text = "- 25 HP";
+            this.btnKIllsme.UseVisualStyleBackColor = true;
+            this.btnKIllsme.Click += new System.EventHandler(this.btnKIllsme_Click);
+            // 
             // mainGameScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1117, 980);
+            this.Controls.Add(this.btnTestMinusSanity);
+            this.Controls.Add(this.btnKIllsme);
             this.Controls.Add(this.labelID);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.labelWherePlayerID);
@@ -546,5 +572,7 @@
         private System.Windows.Forms.Label labelWherePlayerID;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Label labelID;
+        private System.Windows.Forms.Button btnTestMinusSanity;
+        private System.Windows.Forms.Button btnKIllsme;
     }
 }

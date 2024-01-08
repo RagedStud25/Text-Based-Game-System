@@ -32,8 +32,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.btnLoadGame = new System.Windows.Forms.Button();
-            this.btnExit = new System.Windows.Forms.Button();
             this.btnNewGamee = new System.Windows.Forms.Button();
+            this.btnExit = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -79,16 +79,6 @@
             this.btnLoadGame.UseVisualStyleBackColor = true;
             this.btnLoadGame.Click += new System.EventHandler(this.btnLoadGame_Click);
             // 
-            // btnExit
-            // 
-            this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExit.Location = new System.Drawing.Point(176, 351);
-            this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(194, 50);
-            this.btnExit.TabIndex = 5;
-            this.btnExit.Text = "Exit";
-            this.btnExit.UseVisualStyleBackColor = true;
-            // 
             // btnNewGamee
             // 
             this.btnNewGamee.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -99,6 +89,17 @@
             this.btnNewGamee.Text = "New Game";
             this.btnNewGamee.UseVisualStyleBackColor = true;
             this.btnNewGamee.Click += new System.EventHandler(this.btnNewGamee_Click);
+            // 
+            // btnExit
+            // 
+            this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExit.Location = new System.Drawing.Point(176, 351);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(194, 50);
+            this.btnExit.TabIndex = 5;
+            this.btnExit.Text = "Exit";
+            this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // startScreen
             // 
@@ -125,8 +126,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnLoadGame;
-        private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Button btnNewGamee;
+        private System.Windows.Forms.Button btnExit;
     }
 }
 

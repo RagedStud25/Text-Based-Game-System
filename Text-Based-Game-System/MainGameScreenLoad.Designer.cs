@@ -44,7 +44,7 @@
             this.labelDex = new System.Windows.Forms.Label();
             this.labelIint = new System.Windows.Forms.Label();
             this.btnContinue = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnKIllsme = new System.Windows.Forms.Button();
             this.btnChoiceThree = new System.Windows.Forms.Button();
             this.btnChoiceTwo = new System.Windows.Forms.Button();
             this.btnChoiceOne = new System.Windows.Forms.Button();
@@ -68,6 +68,8 @@
             this.borderPlayer1 = new System.Windows.Forms.Label();
             this.labelID = new System.Windows.Forms.Label();
             this.charPicBox = new System.Windows.Forms.PictureBox();
+            this.labelPlayerGender = new System.Windows.Forms.Label();
+            this.btnTestMinusSanity = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.charPicBox)).BeginInit();
             this.SuspendLayout();
@@ -114,6 +116,7 @@
             this.btnTestExpiGen.TabIndex = 85;
             this.btnTestExpiGen.Text = "EXP HERE";
             this.btnTestExpiGen.UseVisualStyleBackColor = true;
+            this.btnTestExpiGen.Click += new System.EventHandler(this.btnTestExpiGen_Click);
             // 
             // label11
             // 
@@ -197,15 +200,16 @@
             this.btnContinue.UseVisualStyleBackColor = true;
             this.btnContinue.Click += new System.EventHandler(this.btnContinue_Click);
             // 
-            // button1
+            // btnKIllsme
             // 
-            this.button1.Location = new System.Drawing.Point(1012, 528);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 71);
-            this.button1.TabIndex = 76;
-            this.button1.Text = "btnTestRandom";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnKIllsme.Location = new System.Drawing.Point(1012, 528);
+            this.btnKIllsme.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnKIllsme.Name = "btnKIllsme";
+            this.btnKIllsme.Size = new System.Drawing.Size(75, 71);
+            this.btnKIllsme.TabIndex = 76;
+            this.btnKIllsme.Text = "- 25 HP";
+            this.btnKIllsme.UseVisualStyleBackColor = true;
+            this.btnKIllsme.Click += new System.EventHandler(this.btnKIllsme_Click);
             // 
             // btnChoiceThree
             // 
@@ -451,13 +455,37 @@
             this.charPicBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.charPicBox.TabIndex = 89;
             this.charPicBox.TabStop = false;
+            this.charPicBox.Click += new System.EventHandler(this.charPicBox_Click);
+            // 
+            // labelPlayerGender
+            // 
+            this.labelPlayerGender.AutoSize = true;
+            this.labelPlayerGender.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelPlayerGender.Location = new System.Drawing.Point(728, 30);
+            this.labelPlayerGender.Name = "labelPlayerGender";
+            this.labelPlayerGender.Size = new System.Drawing.Size(194, 31);
+            this.labelPlayerGender.TabIndex = 90;
+            this.labelPlayerGender.Text = "LatestPlayerID";
+            // 
+            // btnTestMinusSanity
+            // 
+            this.btnTestMinusSanity.Location = new System.Drawing.Point(1012, 603);
+            this.btnTestMinusSanity.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnTestMinusSanity.Name = "btnTestMinusSanity";
+            this.btnTestMinusSanity.Size = new System.Drawing.Size(75, 71);
+            this.btnTestMinusSanity.TabIndex = 91;
+            this.btnTestMinusSanity.Text = "- 25 Sanity";
+            this.btnTestMinusSanity.UseVisualStyleBackColor = true;
+            this.btnTestMinusSanity.Click += new System.EventHandler(this.btnTestMinusSanity_Click);
             // 
             // MainGameScreenLoad
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1116, 984);
+            this.ClientSize = new System.Drawing.Size(1116, 1000);
+            this.Controls.Add(this.btnTestMinusSanity);
+            this.Controls.Add(this.labelPlayerGender);
             this.Controls.Add(this.charPicBox);
             this.Controls.Add(this.labelID);
             this.Controls.Add(this.btnSave);
@@ -471,7 +499,7 @@
             this.Controls.Add(this.labelDex);
             this.Controls.Add(this.labelIint);
             this.Controls.Add(this.btnContinue);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnKIllsme);
             this.Controls.Add(this.btnChoiceThree);
             this.Controls.Add(this.btnChoiceTwo);
             this.Controls.Add(this.btnChoiceOne);
@@ -520,7 +548,7 @@
         private System.Windows.Forms.Label labelDex;
         private System.Windows.Forms.Label labelIint;
         private System.Windows.Forms.Button btnContinue;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnKIllsme;
         private System.Windows.Forms.Button btnChoiceThree;
         private System.Windows.Forms.Button btnChoiceTwo;
         private System.Windows.Forms.Button btnChoiceOne;
@@ -545,5 +573,7 @@
         private System.Windows.Forms.Timer timerRefresh;
         private System.Windows.Forms.Label labelID;
         private System.Windows.Forms.PictureBox charPicBox;
+        private System.Windows.Forms.Label labelPlayerGender;
+        private System.Windows.Forms.Button btnTestMinusSanity;
     }
 }

@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Schema;
 
 namespace Text_Based_Game_System
 {
@@ -50,10 +51,20 @@ namespace Text_Based_Game_System
             while (reader.Read())
             {
                 labelPlayerID.Text = reader.GetValue(1).ToString();
+               
                 labelPlayerGender.Text = reader.GetValue(2).ToString();
             }
+            if (labelPlayerGender.Text == "Male")
+            {
+                PBgender.Image = Image.FromFile("C:\\Users\\Lenovo\\Downloads\\GENDERMALE.png");
 
-            con.Close();
+            }
+            else if (labelPlayerGender.Text == "Female")
+            {
+                PBgender.Image = Image.FromFile("C:\\Users\\Lenovo\\Downloads\\GENDERFEMALE.png");
+            }
+
+                con.Close();
         }
 
 
@@ -111,13 +122,44 @@ namespace Text_Based_Game_System
         {
             MainGameScreenLoad.getPlayerID = Convert.ToInt32(comboPlayername.Text);
             MainGameScreenLoad mainGameScreenLoad = new MainGameScreenLoad();
+
             string textBoxValue = labelPlayerID.Text;
             mainGameScreenLoad.TextBoxValue = textBoxValue;
+
+            string playerGenderValue = labelPlayerGender.Text;
+            mainGameScreenLoad.playerGenderSet = playerGenderValue;
+
             this.Visible = false;
             mainGameScreenLoad.Visible = true;
 
 
         }
 
+        private void BTNdelete_Click(object sender, EventArgs e)
+        {
+            int whereID = Convert.ToInt32(comboPlayername.Text);
+
+            string connetionString;
+            SqlConnection con;
+            connetionString = "Data Source=LAPTOP-KJTSSLLV\\SQLEXPRESS;Initial Catalog=DB_TextBasedGameSystem;Integrated Security=True";
+            con = new SqlConnection(connetionString);
+
+            con.Open(); // This updates the currency from the program to the sql database. 
+         
+          SqlCommand cmdUpdate = new SqlCommand("DELETE FROM[PlayerStats] WHERE PlayerID = " + whereID, con);
+          cmdUpdate = new SqlCommand("DELETE FROM [PlayerSavePoint] WHERE PlayerID = " + whereID, con);
+          
+          cmdUpdate.ExecuteNonQuery();
+          
+            con.Close();
+
+            con.Open();
+          
+            SqlCommand DeletePlayerDetails = new SqlCommand("DELETE FROM [PlayerDetails] WHERE PlayerID = " + whereID, con);
+            DeletePlayerDetails.ExecuteNonQuery();
+            con.Close();
+
+            MessageBox.Show("Deleted Successfully");
+        }
     }
 }

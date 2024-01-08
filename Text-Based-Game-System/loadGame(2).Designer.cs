@@ -48,16 +48,18 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.labelPlayerGender = new System.Windows.Forms.Label();
+            this.PBgender = new System.Windows.Forms.PictureBox();
+            this.BTNdelete = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.PBgender)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 28.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(66, 40);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(80, 216);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(206, 44);
+            this.label1.Size = new System.Drawing.Size(254, 54);
             this.label1.TabIndex = 5;
             this.label1.Text = "Pick a user";
             // 
@@ -65,10 +67,9 @@
             // 
             this.labelPlayerHP.AutoSize = true;
             this.labelPlayerHP.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelPlayerHP.Location = new System.Drawing.Point(81, 185);
-            this.labelPlayerHP.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelPlayerHP.Location = new System.Drawing.Point(100, 395);
             this.labelPlayerHP.Name = "labelPlayerHP";
-            this.labelPlayerHP.Size = new System.Drawing.Size(88, 18);
+            this.labelPlayerHP.Size = new System.Drawing.Size(113, 24);
             this.labelPlayerHP.TabIndex = 12;
             this.labelPlayerHP.Text = "Playerhealth";
             // 
@@ -79,10 +80,10 @@
             this.btnBack2.FlatAppearance.BorderSize = 0;
             this.btnBack2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBack2.Font = new System.Drawing.Font("Showcard Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBack2.Location = new System.Drawing.Point(7, 6);
-            this.btnBack2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnBack2.Location = new System.Drawing.Point(9, 7);
+            this.btnBack2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnBack2.Name = "btnBack2";
-            this.btnBack2.Size = new System.Drawing.Size(49, 39);
+            this.btnBack2.Size = new System.Drawing.Size(65, 48);
             this.btnBack2.TabIndex = 31;
             this.btnBack2.Text = "⬅";
             this.btnBack2.UseVisualStyleBackColor = false;
@@ -90,23 +91,25 @@
             // 
             // comboPlayername
             // 
+            this.comboPlayername.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboPlayername.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboPlayername.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.comboPlayername.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboPlayername.FormattingEnabled = true;
-            this.comboPlayername.Location = new System.Drawing.Point(76, 133);
-            this.comboPlayername.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboPlayername.Location = new System.Drawing.Point(93, 331);
+            this.comboPlayername.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboPlayername.Name = "comboPlayername";
-            this.comboPlayername.Size = new System.Drawing.Size(185, 28);
+            this.comboPlayername.Size = new System.Drawing.Size(245, 33);
             this.comboPlayername.TabIndex = 32;
             this.comboPlayername.SelectedIndexChanged += new System.EventHandler(this.comboSelect);
             // 
             // btnConfirm
             // 
             this.btnConfirm.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnConfirm.Location = new System.Drawing.Point(123, 325);
-            this.btnConfirm.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnConfirm.Location = new System.Drawing.Point(12, 567);
+            this.btnConfirm.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnConfirm.Name = "btnConfirm";
-            this.btnConfirm.Size = new System.Drawing.Size(85, 41);
+            this.btnConfirm.Size = new System.Drawing.Size(113, 50);
             this.btnConfirm.TabIndex = 33;
             this.btnConfirm.Text = "Confirm";
             this.btnConfirm.UseVisualStyleBackColor = true;
@@ -116,10 +119,9 @@
             // 
             this.labelPlayerSanity.AutoSize = true;
             this.labelPlayerSanity.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelPlayerSanity.Location = new System.Drawing.Point(81, 219);
-            this.labelPlayerSanity.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelPlayerSanity.Location = new System.Drawing.Point(100, 437);
             this.labelPlayerSanity.Name = "labelPlayerSanity";
-            this.labelPlayerSanity.Size = new System.Drawing.Size(87, 18);
+            this.labelPlayerSanity.Size = new System.Drawing.Size(109, 24);
             this.labelPlayerSanity.TabIndex = 34;
             this.labelPlayerSanity.Text = "Playersanity";
             // 
@@ -127,10 +129,9 @@
             // 
             this.labelPlayerlvl.AutoSize = true;
             this.labelPlayerlvl.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelPlayerlvl.Location = new System.Drawing.Point(81, 252);
-            this.labelPlayerlvl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelPlayerlvl.Location = new System.Drawing.Point(100, 477);
             this.labelPlayerlvl.Name = "labelPlayerlvl";
-            this.labelPlayerlvl.Size = new System.Drawing.Size(78, 18);
+            this.labelPlayerlvl.Size = new System.Drawing.Size(101, 24);
             this.labelPlayerlvl.TabIndex = 35;
             this.labelPlayerlvl.Text = "Playerlevel";
             // 
@@ -138,10 +139,9 @@
             // 
             this.labelPlayerStr.AutoSize = true;
             this.labelPlayerStr.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelPlayerStr.Location = new System.Drawing.Point(225, 185);
-            this.labelPlayerStr.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelPlayerStr.Location = new System.Drawing.Point(292, 395);
             this.labelPlayerStr.Name = "labelPlayerStr";
-            this.labelPlayerStr.Size = new System.Drawing.Size(68, 18);
+            this.labelPlayerStr.Size = new System.Drawing.Size(84, 24);
             this.labelPlayerStr.TabIndex = 36;
             this.labelPlayerStr.Text = "PlayerStr";
             // 
@@ -149,10 +149,9 @@
             // 
             this.labelPlayerDex.AutoSize = true;
             this.labelPlayerDex.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelPlayerDex.Location = new System.Drawing.Point(225, 219);
-            this.labelPlayerDex.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelPlayerDex.Location = new System.Drawing.Point(292, 437);
             this.labelPlayerDex.Name = "labelPlayerDex";
-            this.labelPlayerDex.Size = new System.Drawing.Size(75, 18);
+            this.labelPlayerDex.Size = new System.Drawing.Size(96, 24);
             this.labelPlayerDex.TabIndex = 37;
             this.labelPlayerDex.Text = "PlayerDex";
             // 
@@ -160,10 +159,9 @@
             // 
             this.labelPlayerInt.AutoSize = true;
             this.labelPlayerInt.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelPlayerInt.Location = new System.Drawing.Point(225, 252);
-            this.labelPlayerInt.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelPlayerInt.Location = new System.Drawing.Point(292, 477);
             this.labelPlayerInt.Name = "labelPlayerInt";
-            this.labelPlayerInt.Size = new System.Drawing.Size(64, 18);
+            this.labelPlayerInt.Size = new System.Drawing.Size(81, 24);
             this.labelPlayerInt.TabIndex = 38;
             this.labelPlayerInt.Text = "PlayerInt";
             // 
@@ -171,10 +169,9 @@
             // 
             this.labelPlayerID.AutoSize = true;
             this.labelPlayerID.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelPlayerID.Location = new System.Drawing.Point(127, 98);
-            this.labelPlayerID.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelPlayerID.Location = new System.Drawing.Point(161, 288);
             this.labelPlayerID.Name = "labelPlayerID";
-            this.labelPlayerID.Size = new System.Drawing.Size(81, 18);
+            this.labelPlayerID.Size = new System.Drawing.Size(105, 24);
             this.labelPlayerID.TabIndex = 39;
             this.labelPlayerID.Text = "Name here";
             this.labelPlayerID.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -183,10 +180,9 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(49, 185);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Location = new System.Drawing.Point(57, 395);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(33, 18);
+            this.label2.Size = new System.Drawing.Size(41, 24);
             this.label2.TabIndex = 40;
             this.label2.Text = "HP:";
             // 
@@ -194,10 +190,9 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(31, 219);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Location = new System.Drawing.Point(33, 437);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(52, 18);
+            this.label3.Size = new System.Drawing.Size(65, 24);
             this.label3.TabIndex = 41;
             this.label3.Text = "Sanity:";
             // 
@@ -205,10 +200,9 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(31, 252);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label4.Location = new System.Drawing.Point(33, 477);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(46, 18);
+            this.label4.Size = new System.Drawing.Size(60, 24);
             this.label4.TabIndex = 42;
             this.label4.Text = "Level:";
             // 
@@ -216,10 +210,9 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(179, 185);
-            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label5.Location = new System.Drawing.Point(231, 395);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(42, 18);
+            this.label5.Size = new System.Drawing.Size(52, 24);
             this.label5.TabIndex = 43;
             this.label5.Text = "STR:";
             // 
@@ -227,10 +220,9 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(179, 219);
-            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label6.Location = new System.Drawing.Point(231, 437);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(43, 18);
+            this.label6.Size = new System.Drawing.Size(55, 24);
             this.label6.TabIndex = 44;
             this.label6.Text = "DEX:";
             // 
@@ -238,10 +230,9 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(179, 252);
-            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label7.Location = new System.Drawing.Point(231, 477);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(35, 18);
+            this.label7.Size = new System.Drawing.Size(45, 24);
             this.label7.TabIndex = 45;
             this.label7.Text = "INT:";
             // 
@@ -249,10 +240,9 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(73, 98);
-            this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label8.Location = new System.Drawing.Point(89, 288);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(52, 18);
+            this.label8.Size = new System.Drawing.Size(66, 24);
             this.label8.TabIndex = 46;
             this.label8.Text = "Name:";
             // 
@@ -260,10 +250,9 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(31, 285);
-            this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label9.Location = new System.Drawing.Point(33, 518);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(61, 18);
+            this.label9.Size = new System.Drawing.Size(79, 24);
             this.label9.TabIndex = 47;
             this.label9.Text = "Gender:";
             // 
@@ -271,18 +260,40 @@
             // 
             this.labelPlayerGender.AutoSize = true;
             this.labelPlayerGender.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelPlayerGender.Location = new System.Drawing.Point(96, 285);
-            this.labelPlayerGender.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelPlayerGender.Location = new System.Drawing.Point(120, 518);
             this.labelPlayerGender.Name = "labelPlayerGender";
-            this.labelPlayerGender.Size = new System.Drawing.Size(98, 18);
+            this.labelPlayerGender.Size = new System.Drawing.Size(126, 24);
             this.labelPlayerGender.TabIndex = 48;
             this.labelPlayerGender.Text = "PlayerGender";
             // 
+            // PBgender
+            // 
+            this.PBgender.Location = new System.Drawing.Point(116, 54);
+            this.PBgender.Name = "PBgender";
+            this.PBgender.Size = new System.Drawing.Size(166, 140);
+            this.PBgender.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PBgender.TabIndex = 49;
+            this.PBgender.TabStop = false;
+            // 
+            // BTNdelete
+            // 
+            this.BTNdelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BTNdelete.Location = new System.Drawing.Point(304, 567);
+            this.BTNdelete.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.BTNdelete.Name = "BTNdelete";
+            this.BTNdelete.Size = new System.Drawing.Size(113, 50);
+            this.BTNdelete.TabIndex = 50;
+            this.BTNdelete.Text = "Delete";
+            this.BTNdelete.UseVisualStyleBackColor = true;
+            this.BTNdelete.Click += new System.EventHandler(this.BTNdelete_Click);
+            // 
             // loadGame_2_
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(322, 389);
+            this.ClientSize = new System.Drawing.Size(429, 628);
+            this.Controls.Add(this.BTNdelete);
+            this.Controls.Add(this.PBgender);
             this.Controls.Add(this.labelPlayerGender);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
@@ -303,10 +314,11 @@
             this.Controls.Add(this.btnBack2);
             this.Controls.Add(this.labelPlayerHP);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "loadGame_2_";
             this.Text = "loadGame_2_";
             this.Load += new System.EventHandler(this.frmLoad_LoadGame);
+            ((System.ComponentModel.ISupportInitialize)(this.PBgender)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -334,5 +346,7 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label labelPlayerGender;
+        private System.Windows.Forms.PictureBox PBgender;
+        private System.Windows.Forms.Button BTNdelete;
     }
 }

@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ProgressBar;
 
 namespace Text_Based_Game_System
 {
@@ -71,22 +73,46 @@ namespace Text_Based_Game_System
             }
         }
 
+        public string playerGenderSet
+        {
+            set
+            {
+                // Assuming labelForm2 is the name of your Label control
+                labelPlayerGender.Text = value;
+                if (labelPlayerGender.Text == "Male")
+                {
+                    charPicBox.Image = Image.FromFile("C:\\Users\\Lenovo\\Downloads\\GENDERMALE.png");
+
+                }
+                else if (labelPlayerGender.Text == "Female")
+                {
+                    charPicBox.Image = Image.FromFile("C:\\Users\\Lenovo\\Downloads\\GENDERFEMALE.png");
+                }
+            }
+
+
+        }
+
         private void btnChoiceOne_Click(object sender, EventArgs e)
         {
+            playerHealth = HealthPB.Value - 30;
             btnChoiceOneClicked = true;
             gameStart();
+            //gameOverValue();
         }
 
         private void btnChoiceTwo_Click(object sender, EventArgs e)
         {
             btnChoiceTwoClicked = true;
             gameStart();
+            //gameOverValue();
         }
 
         private void btnChoiceThree_Click(object sender, EventArgs e)
         {
             btnChoiceThreeClicked = true;
             gameStart();
+            //gameOverValue();
         }
 
         private void btnContinue_Click(object sender, EventArgs e)
@@ -133,6 +159,8 @@ namespace Text_Based_Game_System
                             int playerDexterity = Convert.ToInt32(reader["PlayerDexterity"]);
                             int playerExpi = Convert.ToInt32(reader["PlayerExpi"]);
                             int playerLevel = Convert.ToInt32(reader["Playerlevel"]);
+
+                            
                             playerChoiceSavepoint = Convert.ToInt32(reader["PlayerSavepoint"]);
 
                             
@@ -181,6 +209,7 @@ namespace Text_Based_Game_System
             labelExp.Text = expPB.Value.ToString();
 
             gameStart();
+            
         }
 
 
@@ -487,7 +516,28 @@ namespace Text_Based_Game_System
                 playerLevel++;
             }
         }
+        public void gameOver()
+        {
+            if (HealthPB.Value == 0)
+            {
+                this.Close();
+                MessageBox.Show("Game Over! YOU DIED. -You ran out of Health.");
+                
 
+                startScreen startScreen = new startScreen();
+                startScreen.Show();
+            }
+            if (SanityPB.Value == 0)
+            {
+                this.Close();
+                MessageBox.Show("Game Over! YOU'VE GONE KRAZY! -You ran out of Sanity.");
+                
+
+                startScreen startScreen = new startScreen();
+                startScreen.Show();
+            }
+        }
+       
         public void gameSave()
         {
             int whereID = Convert.ToInt32(labelWherePlayerID.Text);
@@ -534,8 +584,6 @@ namespace Text_Based_Game_System
                     case 6:
                         mainStory_4();
                         break;
-
-
                 }
             }
             catch (Exception ex)
@@ -543,6 +591,8 @@ namespace Text_Based_Game_System
                 playerExp = 0;
                 playerLevel++;
             }
+
+            
 
         }
 
@@ -558,6 +608,35 @@ namespace Text_Based_Game_System
             StrengthPB.Value = playerStr;
             IntPB.Value = playerInt;
             DexPB.Value = playerDex;
+
+            gameOver();
+        }
+
+        private void charPicBox_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void btnKIllsme_Click(object sender, EventArgs e)
+        {
+            // Decrease HealthPB by 25
+            playerHealth = HealthPB.Value - 25;
+            HealthPB.Value = playerHealth;
+            labelHealth.Text = playerHealth.ToString();
+        }
+
+        private void btnTestMinusSanity_Click(object sender, EventArgs e)
+        {
+            // Decrease SanityPB by 25
+            playerSanity = SanityPB.Value - 25;
+            SanityPB.Value = playerSanity;
+            labelSanity.Text = playerSanity.ToString();
+        }
+
+        private void btnTestExpiGen_Click(object sender, EventArgs e)
+        {
+            playerExp = expPB.Value + 25;
+            expPB.Value = playerExp;
         }
     }
 }

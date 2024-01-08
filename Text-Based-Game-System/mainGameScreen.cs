@@ -470,7 +470,6 @@ namespace Text_Based_Game_System
                     expPB.Value = playerExp;
                     levelUpBoxUserForm levelUpBoxUser = new levelUpBoxUserForm();
                     levelUpBoxUser.Visible = true;
-
                 }
             }
             catch (Exception ex) { 
@@ -536,6 +535,27 @@ namespace Text_Based_Game_System
 
         }
 
+        public void gameOver()
+        {
+            if (HealthPB.Value == 0)
+            {
+                this.Close();
+                MessageBox.Show("Game Over! YOU DIED. -You ran out of Health.");
+
+
+                startScreen startScreen = new startScreen();
+                startScreen.Show();
+            }
+            if (SanityPB.Value == 0)
+            {
+                this.Close();
+                MessageBox.Show("Game Over! YOU'VE GONE KRAZY! -You ran out of Sanity.");
+
+
+                startScreen startScreen = new startScreen();
+                startScreen.Show();
+            }
+        }
 
         // test button
         private void button1_Click(object sender, EventArgs e)
@@ -560,11 +580,29 @@ namespace Text_Based_Game_System
             IntPB.Value = playerInt;
             DexPB.Value = playerDex;
 
+            gameOver();
+
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
             gameSave();
+        }
+
+        private void btnKIllsme_Click(object sender, EventArgs e)
+        {
+            // Decrease HealthPB by 25
+            playerHealth = HealthPB.Value - 25;
+            HealthPB.Value = playerHealth;
+            labelHealth.Text = playerHealth.ToString();
+        }
+
+        private void btnTestMinusSanity_Click(object sender, EventArgs e)
+        {
+            // Decrease SanityPB by 25
+            playerSanity = SanityPB.Value - 25;
+            SanityPB.Value = playerSanity;
+            labelSanity.Text = playerSanity.ToString();
         }
     }
 }
